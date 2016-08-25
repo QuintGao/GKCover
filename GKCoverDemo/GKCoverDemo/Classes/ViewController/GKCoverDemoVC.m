@@ -83,7 +83,7 @@
 
 // 自定义全透明遮罩
 - (IBAction)customTransparentCover:(id)sender {
-    GKCover *cover = [GKCover translucentCoverWithTarget:self action:@selector(hidden)];
+    GKCover *cover = [GKCover transparentCoverWithTarget:self action:@selector(hidden)];
     cover.frame = self.view.bounds;
     [self.view addSubview:cover];
     self.cover = cover;

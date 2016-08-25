@@ -57,7 +57,7 @@ static BOOL     _animted;
     bgView.gk_size = CGSizeMake(KScreenW, KScreenH);
     bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
-    [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:_cover action:@selector(hidden)]];
+    [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:target action:action]];
     [cover addSubview:bgView];
     
     return cover;
