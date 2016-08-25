@@ -1,2 +1,3 @@
 # GKCover
-GKCover-一个简单的遮罩视图，让你的弹窗更easy，支持自定义遮罩
+
+已支持CocoaPods：pod GKCover ,'~>1.0.4'
