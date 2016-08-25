@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "GKCover"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "一个简单的遮罩视图，让你的弹窗更easy!"
   s.homepage     = "https://github.com/QuintGao/GKCover"
   s.license      = "MIT"
-  s.author            = { "高坤" => "1094887059@qq.com" }
+  s.authors      = { "高坤" => "1094887059@qq.com" }
   s.social_media_url   = "https://github.com/QuintGao"
   s.platform     = :ios, "6.0"
   s.ios.deployment_target = '6.0'
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'GKCover/**/*.{h,m}'
   s.public_header_files = 'GKCover/**/*.{h}'
-
-  s.frameworks = "Foundation", "UIKit"
+  s.resource     = 'GKCover/Resource'
+  s.frameworks   = "Foundation", "UIKit"
 
 end
