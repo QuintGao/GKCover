@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		600809631D6EE05D00CCF5F1 /* UIView+GKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 600809601D6EE05D00CCF5F1 /* UIView+GKExtension.m */; };
+		600809641D6EE05D00CCF5F1 /* transparent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 600809621D6EE05D00CCF5F1 /* transparent_bg.png */; };
+		6008096C1D6EE2EB00CCF5F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 600809671D6EE2EB00CCF5F1 /* AppDelegate.m */; };
+		6008096D1D6EE2EB00CCF5F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 600809681D6EE2EB00CCF5F1 /* main.m */; };
+		6008096E1D6EE2EB00CCF5F1 /* GKCoverDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6008096B1D6EE2EB00CCF5F1 /* GKCoverDemoVC.m */; };
+		6034DFD21D6D65DC000A7942 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6034DFD01D6D65DC000A7942 /* Main.storyboard */; };
+		6034DFD41D6D65DC000A7942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6034DFD31D6D65DC000A7942 /* Assets.xcassets */; };
+		6034DFD71D6D65DC000A7942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6034DFD51D6D65DC000A7942 /* LaunchScreen.storyboard */; };
+		6034DFE21D6D65DC000A7942 /* GKCoverDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFE11D6D65DC000A7942 /* GKCoverDemoTests.m */; };
+		6034DFED1D6D65DC000A7942 /* GKCoverDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFEC1D6D65DC000A7942 /* GKCoverDemoUITests.m */; };
+		6034DFFD1D6D6746000A7942 /* GKCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFFC1D6D6746000A7942 /* GKCover.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6034DFDE1D6D65DC000A7942 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6034DFBC1D6D65DC000A7942 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6034DFC31D6D65DC000A7942;
+			remoteInfo = GKCoverDemo;
+		};
+		6034DFE91D6D65DC000A7942 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6034DFBC1D6D65DC000A7942 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6034DFC31D6D65DC000A7942;
+			remoteInfo = GKCoverDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6008095F1D6EE05D00CCF5F1 /* UIView+GKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GKExtension.h"; sourceTree = "<group>"; };
+		600809601D6EE05D00CCF5F1 /* UIView+GKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GKExtension.m"; sourceTree = "<group>"; };
+		600809621D6EE05D00CCF5F1 /* transparent_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent_bg.png; sourceTree = "<group>"; };
+		600809661D6EE2EB00CCF5F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		600809671D6EE2EB00CCF5F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		600809681D6EE2EB00CCF5F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6008096A1D6EE2EB00CCF5F1 /* GKCoverDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverDemoVC.h; sourceTree = "<group>"; };
+		6008096B1D6EE2EB00CCF5F1 /* GKCoverDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCoverDemoVC.m; sourceTree = "<group>"; };
+		6034DFC41D6D65DC000A7942 /* GKCoverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKCoverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6034DFD11D6D65DC000A7942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6034DFD31D6D65DC000A7942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6034DFD61D6D65DC000A7942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6034DFD81D6D65DC000A7942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6034DFDD1D6D65DC000A7942 /* GKCoverDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKCoverDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6034DFE11D6D65DC000A7942 /* GKCoverDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKCoverDemoTests.m; sourceTree = "<group>"; };
+		6034DFE31D6D65DC000A7942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6034DFE81D6D65DC000A7942 /* GKCoverDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GKCoverDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6034DFEC1D6D65DC000A7942 /* GKCoverDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKCoverDemoUITests.m; sourceTree = "<group>"; };
+		6034DFEE1D6D65DC000A7942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6034DFFB1D6D6746000A7942 /* GKCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCover.h; sourceTree = "<group>"; };
+		6034DFFC1D6D6746000A7942 /* GKCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCover.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6034DFC11D6D65DC000A7942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6034DFDA1D6D65DC000A7942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6034DFE51D6D65DC000A7942 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6008095E1D6EE05D00CCF5F1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6008095F1D6EE05D00CCF5F1 /* UIView+GKExtension.h */,
+				600809601D6EE05D00CCF5F1 /* UIView+GKExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		600809611D6EE05D00CCF5F1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				600809621D6EE05D00CCF5F1 /* transparent_bg.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		600809651D6EE28F00CCF5F1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				600809691D6EE2EB00CCF5F1 /* ViewController */,
+				600809661D6EE2EB00CCF5F1 /* AppDelegate.h */,
+				600809671D6EE2EB00CCF5F1 /* AppDelegate.m */,
+				600809681D6EE2EB00CCF5F1 /* main.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		600809691D6EE2EB00CCF5F1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6008096A1D6EE2EB00CCF5F1 /* GKCoverDemoVC.h */,
+				6008096B1D6EE2EB00CCF5F1 /* GKCoverDemoVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6034DFBB1D6D65DC000A7942 = {
+			isa = PBXGroup;
+			children = (
+				6034DFC61D6D65DC000A7942 /* GKCoverDemo */,
+				6034DFE01D6D65DC000A7942 /* GKCoverDemoTests */,
+				6034DFEB1D6D65DC000A7942 /* GKCoverDemoUITests */,
+				6034DFC51D6D65DC000A7942 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6034DFC51D6D65DC000A7942 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6034DFC41D6D65DC000A7942 /* GKCoverDemo.app */,
+				6034DFDD1D6D65DC000A7942 /* GKCoverDemoTests.xctest */,
+				6034DFE81D6D65DC000A7942 /* GKCoverDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6034DFC61D6D65DC000A7942 /* GKCoverDemo */ = {
+			isa = PBXGroup;
+			children = (
+				600809651D6EE28F00CCF5F1 /* Classes */,
+				6034DFFA1D6D6610000A7942 /* GKCover */,
+				6034DFC71D6D65DC000A7942 /* Supporting Files */,
+			);
+			path = GKCoverDemo;
+			sourceTree = "<group>";
+		};
+		6034DFC71D6D65DC000A7942 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6034DFD01D6D65DC000A7942 /* Main.storyboard */,
+				6034DFD31D6D65DC000A7942 /* Assets.xcassets */,
+				6034DFD51D6D65DC000A7942 /* LaunchScreen.storyboard */,
+				6034DFD81D6D65DC000A7942 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6034DFE01D6D65DC000A7942 /* GKCoverDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				6034DFE11D6D65DC000A7942 /* GKCoverDemoTests.m */,
+				6034DFE31D6D65DC000A7942 /* Info.plist */,
+			);
+			path = GKCoverDemoTests;
+			sourceTree = "<group>";
+		};
+		6034DFEB1D6D65DC000A7942 /* GKCoverDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6034DFEC1D6D65DC000A7942 /* GKCoverDemoUITests.m */,
+				6034DFEE1D6D65DC000A7942 /* Info.plist */,
+			);
+			path = GKCoverDemoUITests;
+			sourceTree = "<group>";
+		};
+		6034DFFA1D6D6610000A7942 /* GKCover */ = {
+			isa = PBXGroup;
+			children = (
+				6008095E1D6EE05D00CCF5F1 /* Category */,
+				600809611D6EE05D00CCF5F1 /* Resource */,
+				6034DFFB1D6D6746000A7942 /* GKCover.h */,
+				6034DFFC1D6D6746000A7942 /* GKCover.m */,
+			);
+			path = GKCover;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6034DFC31D6D65DC000A7942 /* GKCoverDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6034DFF11D6D65DC000A7942 /* Build configuration list for PBXNativeTarget "GKCoverDemo" */;
+			buildPhases = (
+				6034DFC01D6D65DC000A7942 /* Sources */,
+				6034DFC11D6D65DC000A7942 /* Frameworks */,
+				6034DFC21D6D65DC000A7942 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKCoverDemo;
+			productName = GKCoverDemo;
+			productReference = 6034DFC41D6D65DC000A7942 /* GKCoverDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6034DFDC1D6D65DC000A7942 /* GKCoverDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6034DFF41D6D65DC000A7942 /* Build configuration list for PBXNativeTarget "GKCoverDemoTests" */;
+			buildPhases = (
+				6034DFD91D6D65DC000A7942 /* Sources */,
+				6034DFDA1D6D65DC000A7942 /* Frameworks */,
+				6034DFDB1D6D65DC000A7942 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6034DFDF1D6D65DC000A7942 /* PBXTargetDependency */,
+			);
+			name = GKCoverDemoTests;
+			productName = GKCoverDemoTests;
+			productReference = 6034DFDD1D6D65DC000A7942 /* GKCoverDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6034DFE71D6D65DC000A7942 /* GKCoverDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6034DFF71D6D65DC000A7942 /* Build configuration list for PBXNativeTarget "GKCoverDemoUITests" */;
+			buildPhases = (
+				6034DFE41D6D65DC000A7942 /* Sources */,
+				6034DFE51D6D65DC000A7942 /* Frameworks */,
+				6034DFE61D6D65DC000A7942 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6034DFEA1D6D65DC000A7942 /* PBXTargetDependency */,
+			);
+			name = GKCoverDemoUITests;
+			productName = GKCoverDemoUITests;
+			productReference = 6034DFE81D6D65DC000A7942 /* GKCoverDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6034DFBC1D6D65DC000A7942 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "高坤";
+				TargetAttributes = {
+					6034DFC31D6D65DC000A7942 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					6034DFDC1D6D65DC000A7942 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 6034DFC31D6D65DC000A7942;
+					};
+					6034DFE71D6D65DC000A7942 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 6034DFC31D6D65DC000A7942;
+					};
+				};
+			};
+			buildConfigurationList = 6034DFBF1D6D65DC000A7942 /* Build configuration list for PBXProject "GKCoverDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6034DFBB1D6D65DC000A7942;
+			productRefGroup = 6034DFC51D6D65DC000A7942 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6034DFC31D6D65DC000A7942 /* GKCoverDemo */,
+				6034DFDC1D6D65DC000A7942 /* GKCoverDemoTests */,
+				6034DFE71D6D65DC000A7942 /* GKCoverDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6034DFC21D6D65DC000A7942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6034DFD71D6D65DC000A7942 /* LaunchScreen.storyboard in Resources */,
+				6034DFD41D6D65DC000A7942 /* Assets.xcassets in Resources */,
+				600809641D6EE05D00CCF5F1 /* transparent_bg.png in Resources */,
+				6034DFD21D6D65DC000A7942 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6034DFDB1D6D65DC000A7942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6034DFE61D6D65DC000A7942 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6034DFC01D6D65DC000A7942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6034DFFD1D6D6746000A7942 /* GKCover.m in Sources */,
+				600809631D6EE05D00CCF5F1 /* UIView+GKExtension.m in Sources */,
+				6008096D1D6EE2EB00CCF5F1 /* main.m in Sources */,
+				6008096E1D6EE2EB00CCF5F1 /* GKCoverDemoVC.m in Sources */,
+				6008096C1D6EE2EB00CCF5F1 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6034DFD91D6D65DC000A7942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6034DFE21D6D65DC000A7942 /* GKCoverDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6034DFE41D6D65DC000A7942 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6034DFED1D6D65DC000A7942 /* GKCoverDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6034DFDF1D6D65DC000A7942 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6034DFC31D6D65DC000A7942 /* GKCoverDemo */;
+			targetProxy = 6034DFDE1D6D65DC000A7942 /* PBXContainerItemProxy */;
+		};
+		6034DFEA1D6D65DC000A7942 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6034DFC31D6D65DC000A7942 /* GKCoverDemo */;
+			targetProxy = 6034DFE91D6D65DC000A7942 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6034DFD01D6D65DC000A7942 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6034DFD11D6D65DC000A7942 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6034DFD51D6D65DC000A7942 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6034DFD61D6D65DC000A7942 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6034DFEF1D6D65DC000A7942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6034DFF01D6D65DC000A7942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6034DFF21D6D65DC000A7942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GKCoverDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaokun.bykj.GKCoverDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6034DFF31D6D65DC000A7942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GKCoverDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaokun.bykj.GKCoverDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6034DFF51D6D65DC000A7942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GKCoverDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaokun.bykj.GKCoverDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKCoverDemo.app/GKCoverDemo";
+			};
+			name = Debug;
+		};
+		6034DFF61D6D65DC000A7942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GKCoverDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaokun.bykj.GKCoverDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GKCoverDemo.app/GKCoverDemo";
+			};
+			name = Release;
+		};
+		6034DFF81D6D65DC000A7942 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GKCoverDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaokun.bykj.GKCoverDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GKCoverDemo;
+			};
+			name = Debug;
+		};
+		6034DFF91D6D65DC000A7942 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GKCoverDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaokun.bykj.GKCoverDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GKCoverDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6034DFBF1D6D65DC000A7942 /* Build configuration list for PBXProject "GKCoverDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6034DFEF1D6D65DC000A7942 /* Debug */,
+				6034DFF01D6D65DC000A7942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6034DFF11D6D65DC000A7942 /* Build configuration list for PBXNativeTarget "GKCoverDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6034DFF21D6D65DC000A7942 /* Debug */,
+				6034DFF31D6D65DC000A7942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6034DFF41D6D65DC000A7942 /* Build configuration list for PBXNativeTarget "GKCoverDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6034DFF51D6D65DC000A7942 /* Debug */,
+				6034DFF61D6D65DC000A7942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6034DFF71D6D65DC000A7942 /* Build configuration list for PBXNativeTarget "GKCoverDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6034DFF81D6D65DC000A7942 /* Debug */,
+				6034DFF91D6D65DC000A7942 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6034DFBC1D6D65DC000A7942 /* Project object */;
+}

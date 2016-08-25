@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Cover DemoVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GKCoverDemoVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keH-6V-kYr">
+                                <rect key="frame" x="229" y="121" width="142" height="30"/>
+                                <state key="normal" title="半透明遮罩-底部弹窗"/>
+                                <connections>
+                                    <action selector="translucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xeS-I6-G3X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwL-zH-Bpk">
+                                <rect key="frame" x="229" y="201" width="142" height="30"/>
+                                <state key="normal" title="全透明遮罩-底部弹窗"/>
+                                <connections>
+                                    <action selector="transparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5O-Ox-vBG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51V-Yj-rt1">
+                                <rect key="frame" x="229" y="281" width="142" height="30"/>
+                                <state key="normal" title="半透明遮罩-中间弹窗"/>
+                                <connections>
+                                    <action selector="windowCenterTranslucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3PR-Jt-qH5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQP-Fg-Dr9">
+                                <rect key="frame" x="229" y="361" width="142" height="30"/>
+                                <state key="normal" title="全透明遮罩-中间弹窗"/>
+                                <connections>
+                                    <action selector="windowCenterTransparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QrV-IJ-SbD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GKCoverDemo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prC-rv-cI9">
+                                <rect key="frame" x="243" y="60" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-T2-BFD">
+                                <rect key="frame" x="221.5" y="431" width="157" height="30"/>
+                                <state key="normal" title="半透明遮罩-自定义弹窗"/>
+                                <connections>
+                                    <action selector="customTranslucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIB-1T-Jxu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-u0-gNa">
+                                <rect key="frame" x="221.5" y="501" width="157" height="30"/>
+                                <state key="normal" title="全透明遮罩-自定义弹窗"/>
+                                <connections>
+                                    <action selector="customTransparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nfn-K7-MUU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="51V-Yj-rt1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CbE-Oz-uBU"/>
+                            <constraint firstItem="vwL-zH-Bpk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J2Y-jQ-tl7"/>
+                            <constraint firstItem="prC-rv-cI9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sf7-Jc-aSF"/>
+                            <constraint firstItem="keH-6V-kYr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UrY-Gr-ulr"/>
+                            <constraint firstItem="PQP-Fg-Dr9" firstAttribute="top" secondItem="51V-Yj-rt1" secondAttribute="bottom" constant="50" id="Y4I-MU-8xM"/>
+                            <constraint firstItem="vwL-zH-Bpk" firstAttribute="top" secondItem="keH-6V-kYr" secondAttribute="bottom" constant="50" id="cRw-pp-x8N"/>
+                            <constraint firstItem="gvF-u0-gNa" firstAttribute="top" secondItem="L0a-T2-BFD" secondAttribute="bottom" constant="40" id="eHm-2e-gfZ"/>
+                            <constraint firstItem="prC-rv-cI9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="fvv-fh-YQv"/>
+                            <constraint firstItem="L0a-T2-BFD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hVh-2f-ZRD"/>
+                            <constraint firstItem="PQP-Fg-Dr9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hj8-bG-KDa"/>
+                            <constraint firstItem="L0a-T2-BFD" firstAttribute="top" secondItem="PQP-Fg-Dr9" secondAttribute="bottom" constant="40" id="kjd-4L-5pJ"/>
+                            <constraint firstItem="keH-6V-kYr" firstAttribute="top" secondItem="prC-rv-cI9" secondAttribute="bottom" constant="40" id="pc0-wf-heV"/>
+                            <constraint firstItem="gvF-u0-gNa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sge-po-oI2"/>
+                            <constraint firstItem="51V-Yj-rt1" firstAttribute="top" secondItem="vwL-zH-Bpk" secondAttribute="bottom" constant="50" id="yUe-Sc-lvc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
