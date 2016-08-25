@@ -8,7 +8,7 @@
 ```
     UIView *redView = [UIView new];
     redView.backgroundColor = [UIColor redColor];
-    redView.gk_size = CGSizeMake(self.view.frame.size.width, 200);
+    redView.gk_size = CGSizeMake(KScreenW, 200);
     
     [GKCover translucentCoverFrom:self.view content:redView animated:YES];
     
@@ -25,7 +25,7 @@
 3.自定义弹窗
 
 ```
-GKCover *cover = [GKCover transparentCoverWithTarget:self action:@selector(hidden)];
+    GKCover *cover = [GKCover transparentCoverWithTarget:self action:@selector(hidden)];
     cover.frame = self.view.bounds;
     [self.view addSubview:cover];
     self.cover = cover;
