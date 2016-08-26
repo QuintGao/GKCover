@@ -43,7 +43,7 @@
 
 Demo效果图：
 
-![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/GKCoverDemo.gif)
+![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/GKCoverDemo-gif.gif)
 
 更新日志：
 
