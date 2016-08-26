@@ -36,8 +36,6 @@ typedef void(^hideBlock)();
  */
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated;
 
-+ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
-
 /**
  *  改变透明度(仅用于半透明遮罩)
  */
@@ -57,6 +55,7 @@ typedef void(^hideBlock)();
  */
 + (void)translucentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated;
 
+
 /**
  *  全透明遮罩
  *
@@ -64,5 +63,28 @@ typedef void(^hideBlock)();
  *  @param animated    是否动画
  */
 + (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated;
+
+#pragma mark - v1.0.5 新增功能
+#pragma makr - 新增弹窗显示和隐藏时的block
+
+/**
+ *  半透明遮罩-底部弹窗，添加显示和隐藏的block
+ */
++ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
+
+/**
+ *  全透明遮罩-底部弹窗，添加显示和隐藏的block
+ */
++ (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
+
+/**
+ *  半透明遮罩-中间弹窗，添加显示和隐藏的block
+ */
++ (void)translucentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
+
+/**
+ *  全透明遮罩-中间弹窗，添加显示和隐藏的block
+ */
++ (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
 
 @end
