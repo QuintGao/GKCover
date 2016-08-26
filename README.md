@@ -41,6 +41,23 @@
     }];
 ```
 
+4.显示和隐藏block
+
+```
+UIView *customView = [UIView new];
+    customView.gk_size = CGSizeMake(KScreenW, 200);
+    customView.backgroundColor = [UIColor blackColor];
+    
+    [GKCover translucentCoverFrom:self.view content:customView animated:YES showBlock:^{
+        // 显示出来时的block
+        NSLog(@"弹窗显示了，6不6");
+    } hideBlock:^{
+        // 移除后的block
+        NSLog(@"弹窗消失了，555");
+    }];
+
+```
+
 Demo效果图：
 
 ![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/GKCoverDemo-gif.gif)
@@ -55,3 +72,9 @@ Demo效果图：
 1.0.4版本：更新Demo工程，添加更多使用方法
 1.0.5版本：遮罩支持显示和隐藏的block，可以在block中添加要实现的方法
 ```
+
+技术支持：
+
+[csdn博客地址](http://blog.csdn.net/u010565269/article/details/52332027)
+
+[简书地址](http://www.jianshu.com/p/866a79a95963)

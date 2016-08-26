@@ -107,10 +107,10 @@
     
     [GKCover translucentCoverFrom:self.view content:customView animated:YES showBlock:^{
         // 显示出来时的block
-        NSLog(@"弹窗显示了，哈哈哈");
+        NSLog(@"弹窗显示了，6不6");
     } hideBlock:^{
         // 移除后的block
-        NSLog(@"啊哦哦，弹窗消失了");
+        NSLog(@"弹窗消失了，555");
     }];
 }
 
@@ -120,11 +120,6 @@
     customView.gk_size = CGSizeMake(300, 200);
     customView.backgroundColor = [UIColor greenColor];
     
-//    [GKCover transparentCoverFrom:self.view content:customView animated:YES showBlock:^{
-//        NSLog(@"弹窗显示了，6不6");
-//    } hideBlock:^{
-//        NSLog(@"弹窗消失了，555");
-//    }];
     [GKCover transparentWindowCenterCoverContent:customView animated:YES showBlock:^{
         NSLog(@"弹窗显示了，6不6");
     } hideBlock:^{
