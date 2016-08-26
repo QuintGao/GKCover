@@ -19,7 +19,7 @@
     UIView *greenView = [UIView new];
     greenView.backgroundColor = [UIColor greenColor];
     greenView.gk_size = CGSizeMake(240, 160);
-    
+    0.
     [GKCover translucentWindowCenterCoverContent:greenView animated:YES];
 ```
 3.自定义弹窗
@@ -42,3 +42,13 @@
 ```
 
 Demo效果图：暂无
+
+更新日志：
+
+```
+1.1.0.0版本：添加底部遮罩和中间遮罩
+2.1.0.1版本：添加自定义遮罩
+3.1.0.2版本：添加使用方法
+4.1.0.3版本：修改一个全透明遮罩不能点击消失的bug
+5.1.0.4版本：更新Demo工程，添加更多使用方法
+```

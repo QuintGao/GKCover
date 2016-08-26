@@ -11,6 +11,9 @@
 #define KScreenW [UIScreen mainScreen].bounds.size.width
 #define KScreenH [UIScreen mainScreen].bounds.size.height
 
+typedef void(^showBlock)();
+typedef void(^hideBlock)();
+
 @interface GKCover : UIView
 
 + (instancetype)cover;
@@ -32,6 +35,8 @@
  *  半透明遮罩，默认黑色，0.5
  */
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated;
+
++ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
 
 /**
  *  改变透明度(仅用于半透明遮罩)

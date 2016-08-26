@@ -14,6 +14,7 @@
 static GKCover *_cover;
 static UIView  *_contentView;
 static BOOL     _animted;
+static hideBlock _hide;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -80,6 +81,34 @@ static BOOL     _animted;
     _contentView = contentView;
     
     _animted = animated;
+    if (animated) {
+        contentView.gk_y = KScreenH;
+        [UIView animateWithDuration:0.25 animations:^{
+            contentView.gk_y = KScreenH - contentView.gk_height;
+        }];
+    }else{
+        contentView.gk_y = KScreenH - contentView.gk_height;
+    }
+}
+
++ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide
+{
+    GKCover *cover = [self cover];
+    cover.backgroundColor = [UIColor blackColor];
+    cover.alpha = 0.5;
+    cover.frame = fromView.bounds;
+    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cover action:@selector(hidden)]];
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    [fromView addSubview:contentView];
+    _contentView = contentView;
+    
+    _animted = animated;
+    _hide = hide;
+    
+    !show ? : show();
+    
     if (animated) {
         contentView.gk_y = KScreenH;
         [UIView animateWithDuration:0.25 animations:^{
@@ -190,17 +219,18 @@ static BOOL     _animted;
  *  隐藏
  */
 - (void)hidden{
-    
     if (_animted) {
         [UIView animateWithDuration:0.25 animations:^{
             _contentView.gk_y = KScreenH;
         }completion:^(BOOL finished) {
             [_cover removeFromSuperview];
             [_contentView removeFromSuperview];
+            !_hide ? : _hide();
         }];
     }else{
         [_cover removeFromSuperview];
         [_contentView removeFromSuperview];
+        !_hide ? : _hide();
     }
 }
 
