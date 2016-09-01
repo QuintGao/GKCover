@@ -5,6 +5,7 @@
 //  Created by 高坤 on 16/8/24.
 //  Copyright © 2016年 高坤. All rights reserved.
 //  GKCover-一个简单的遮罩视图，让你的弹窗更easy，支持自定义遮罩弹窗
+//  github:https://github.com/QuintGao/GKCover
 
 #import <UIKit/UIKit.h>
 
@@ -87,14 +88,26 @@ typedef void(^hideBlock)();
  */
 + (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
 
-
+#pragma mark - v1.0.5 
+#pragma mark - 增加外部调用显示和隐藏的方法
 /**
  *  显示
  */
-+ (void)showContentView;
++ (void)show;
 /**
  *  隐藏
  */
-+ (void)hideContentView;
++ (void)hide;
+
+#pragma mark - v2.0.0
+#pragma makr - 新增功能：增加点击遮罩时是否消失的判断,notClick是否可以点击，默认是NO,代表能点击
+
++ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click;
+
++ (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click;
+
++ (void)translucentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click;
+
++ (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click;
 
 @end

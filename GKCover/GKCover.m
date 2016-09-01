@@ -5,6 +5,7 @@
 //  Created by 高坤 on 16/8/24.
 //  Copyright © 2016年 高坤. All rights reserved.
 //  GKCover-一个简单的遮罩视图，让你的弹窗更easy，支持自定义遮罩弹窗
+//  github:https://github.com/QuintGao/GKCover
 
 #import "GKCover.h"
 #import "UIView+GKExtension.h"
@@ -12,10 +13,12 @@
 @implementation GKCover
 
 static GKCover *_cover;
+static UIView  *_fromView;
 static UIView  *_contentView;
 static BOOL     _animated;
-static showBlock _show;
-static hideBlock _hide;
+static showBlock _showBlock;
+static hideBlock _hideBlock;
+static BOOL     _notclick;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -69,22 +72,7 @@ static hideBlock _hide;
 
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated
 {
-    GKCover *cover = [self cover];
-    cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.5;
-    cover.frame = fromView.bounds;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
-    [fromView addSubview:cover];
-    _cover = cover;
-    
-    [fromView addSubview:contentView];
-    _contentView = contentView;
-    
-    _animated = animated;
-    _show = nil;
-    _hide = nil;
-    
-    [self showContentView];
+    [self translucentCoverFrom:fromView content:contentView animated:animated notClick:NO];
 }
 
 + (void)changeAlpha:(CGFloat)alpha
@@ -94,66 +82,19 @@ static hideBlock _hide;
 
 + (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated
 {
-    GKCover *cover = [self cover];
-    cover.frame = fromView.bounds;
-    cover.backgroundColor = [UIColor clearColor];
-    [fromView addSubview:cover];
-    _cover = cover;
-    
-    [cover addSubview:[self transparentBgView]];
-    
-    [fromView addSubview:contentView];
-    _contentView = contentView;
-    
-    _animated = animated;
-    _show = nil;
-    _hide = nil;
-    
-    [self showContentView];
+    [self transparentCoverFrom:fromView content:contentView animated:animated notClick:NO];
 }
 
 #pragma mark - 固定遮罩-屏幕中间弹窗
 
 + (void)translucentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated
 {
-    UIWindow *window = [self getKeyWindow];
-    
-    GKCover *cover = [self cover];
-    cover.frame = window.bounds;
-    cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.1;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
-    [window addSubview:cover];
-    _cover = cover;
-    
-    contentView.center = window.center;
-    [window addSubview:contentView];
-    _contentView = contentView;
-    
-    if (animated) {
-        [self animationAlert:contentView];
-    }
+    [self translucentWindowCenterCoverContent:contentView animated:animated notClick:NO];
 }
 
 + (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated
 {
-    UIWindow *window = [self getKeyWindow];
-    
-    GKCover *cover = [self cover];
-    cover.frame = window.bounds;
-    cover.backgroundColor = [UIColor clearColor];
-    [window addSubview:cover];
-    _cover = cover;
-    
-    [cover addSubview:[self transparentBgView]];
-    
-    contentView.center = window.center;
-    [window addSubview:contentView];
-    _contentView = contentView;
-    
-    if (animated) {
-        [self animationAlert:contentView];
-    }
+    [self transparentWindowCenterCoverContent:contentView animated:animated notClick:NO];
 }
 
 #pragma mark - v1.0.5 新增功能
@@ -164,22 +105,7 @@ static hideBlock _hide;
  */
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide
 {
-    GKCover *cover = [self cover];
-    cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.5;
-    cover.frame = fromView.bounds;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
-    [fromView addSubview:cover];
-    _cover = cover;
-    
-    [fromView addSubview:contentView];
-    _contentView = contentView;
-    
-    _animated = animated;
-    _show = show;
-    _hide = hide;
-    
-    [self showContentView];
+    [self translucentCoverFrom:fromView content:contentView animated:animated notClick:NO showBlock:show hideBlock:hide];
 }
 
 /**
@@ -187,22 +113,7 @@ static hideBlock _hide;
  */
 + (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide
 {
-    GKCover *cover = [self cover];
-    cover.frame = fromView.bounds;
-    cover.backgroundColor = [UIColor clearColor];
-    [fromView addSubview:cover];
-    _cover = cover;
-    
-    [cover addSubview:[self transparentBgView]];
-    
-    [fromView addSubview:contentView];
-    _contentView = contentView;
-    
-    _animated = animated;
-    _show = show;
-    _hide = hide;
-    
-    [self showContentView];
+    [self transparentCoverFrom:fromView content:contentView animated:animated notClick:NO showBlock:show hideBlock:hide];
 }
 
 /**
@@ -212,24 +123,7 @@ static hideBlock _hide;
 {
     UIWindow *window = [self getKeyWindow];
     
-    GKCover *cover = [self cover];
-    cover.frame = window.bounds;
-    cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.1;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
-    [window addSubview:cover];
-    _cover = cover;
-    
-    contentView.center = window.center;
-    [window addSubview:contentView];
-    _contentView = contentView;
-    
-    _show = show;
-    _hide = hide;
-    
-    if (animated) {
-        [self animationAlert:contentView];
-    }
+    [self translucentCoverFrom:window content:contentView animated:animated notClick:NO showBlock:show hideBlock:hide];
 }
 
 /**
@@ -239,28 +133,134 @@ static hideBlock _hide;
 {
     UIWindow *window = [self getKeyWindow];
     
-    GKCover *cover = [self cover];
-    cover.frame = window.bounds;
-    cover.backgroundColor = [UIColor clearColor];
-    [window addSubview:cover];
-    _cover = cover;
+    [self transparentCoverFrom:window content:contentView animated:animated notClick:NO showBlock:show hideBlock:hide];
+}
+
+#pragma mark - v2.0.2新增方法,使用更加方便
+#pragma makr - 新增功能：增加点击遮罩时是否消失的判断,canClick是否可以点击，默认是YES
+
++ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click
+{
+    [self translucentCoverFrom:fromView content:contentView animated:animated notClick:click showBlock:nil hideBlock:nil];
+}
+
++ (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click
+{
+    [self transparentCoverFrom:fromView content:contentView animated:animated notClick:click showBlock:nil hideBlock:nil];
+}
+
++ (void)translucentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click
+{
+    UIWindow *window = [self getKeyWindow];
+
+    [self translucentCoverFrom:window content:contentView animated:animated notClick:click showBlock:nil hideBlock:nil];
+}
+
++ (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click
+{
+    UIWindow *window = [self getKeyWindow];
     
-    [cover addSubview:[self transparentBgView]];
-    
-    contentView.center = window.center;
-    [window addSubview:contentView];
-    _contentView = contentView;
-    
-    _show = show;
-    _hide = hide;
-    
-    if (animated) {
-        [self animationAlert:contentView];
-    }
+    [self transparentCoverFrom:window content:contentView animated:animated notClick:click showBlock:nil hideBlock:nil];
 }
 
 
 #pragma mark - 私有方法
+#pragma mark - 增加内部私有方法，v2.0.0新增
+/**
+ *  显示一个半透明遮罩
+ *
+ *  @param fromView          显示在此view上
+ *  @param contentView       遮罩上面显示的内容view
+ *  @param animated          是否有动画 ：默认是NO
+ *  @param notClick          是否不能点击：默认是NO，即能点击
+ *  @param show              显示时的block
+ *  @param transparentBgView 隐藏时的block
+ */
++ (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    // 创建遮罩
+    GKCover *cover = [self cover];
+    // 设置大小和颜色
+    cover.frame = fromView.bounds;
+    cover.backgroundColor = [UIColor blackColor];
+    cover.alpha = 0.5;
+    // 添加遮罩
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    // 如果遮罩能点
+    if (!notClick) {
+        [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
+    }
+    
+    // 赋值
+    _fromView  = fromView;
+    _animated  = animated;
+    _notclick  = notClick;
+    _showBlock = showBlock;
+    _hideBlock = hideBlock;
+    
+    // 显示内容view
+    if ([fromView isKindOfClass:[UIWindow class]]) {
+        contentView.center = fromView.center;
+        [fromView addSubview:contentView];
+        _contentView = contentView;
+        if (animated) {
+            [self animationAlert:contentView];
+        }
+    }else{
+        [fromView addSubview:contentView];
+        _contentView = contentView;
+        
+        [self show];
+    }
+}
+
+/**
+ *  全透明遮罩
+ *
+ *  @param fromView    显示在此view上
+ *  @param contentView 遮罩上面显示的内容view
+ *  @param animated    是否有显示动画
+ *  @param notClick    是否不能点击，默认是NO，即能点击
+ *  @param showBlock   显示时的block
+ *  @param hideBlock   隐藏时的block
+ */
++ (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    // 创建遮罩
+    GKCover *cover = [self cover];
+    cover.frame = fromView.bounds;
+    cover.backgroundColor = [UIColor clearColor];
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    // 赋值
+    _fromView  = fromView;
+    _animated  = animated;
+    _notclick  = notClick;
+    _showBlock = showBlock;
+    _hideBlock = hideBlock;
+    // 添加透明背景
+    [cover addSubview:[self transparentBgView]];
+    
+    // 显示内容view
+    if ([fromView isKindOfClass:[UIWindow class]]) {
+        contentView.center = fromView.center;
+        [fromView addSubview:contentView];
+        _contentView = contentView;
+        if (animated) {
+            [self animationAlert:contentView];
+        }
+    }else{
+        [fromView addSubview:contentView];
+        _contentView = contentView;
+        
+        [self show];
+    }
+}
+
+
 /**
  *  透明图片
  */
@@ -270,7 +270,9 @@ static hideBlock _hide;
     bgView.gk_size = CGSizeMake(KScreenW, KScreenH);
     bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
-    [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
+    if (!_notclick) {
+        [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
+    }
     return bgView;
 }
 
@@ -299,42 +301,43 @@ static hideBlock _hide;
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    !_show ? : _show();
+    !_showBlock ? : _showBlock();
 }
 
 /**
  *  显示
  */
-+ (void)showContentView
++ (void)show
 {
     if (_animated) {
         _contentView.gk_y = KScreenH;
         [UIView animateWithDuration:0.25 animations:^{
             _contentView.gk_y = KScreenH - _contentView.gk_height;
         }completion:^(BOOL finished) {
-            !_show ? : _show();
+            !_showBlock ? : _showBlock();
         }];
     }else{
-        !_show ? : _show();
+        !_showBlock ? : _showBlock();
         _contentView.gk_y = KScreenH - _contentView.gk_height;
     }
 }
 /**
  *  隐藏
  */
-+ (void)hideContentView{
-    if (_animated) {
++ (void)hide{
+    if (_animated && ![_fromView isKindOfClass:[UIWindow class]]) {
+        
         [UIView animateWithDuration:0.25 animations:^{
             _contentView.gk_y = KScreenH;
         }completion:^(BOOL finished) {
             [_cover removeFromSuperview];
             [_contentView removeFromSuperview];
-            !_hide ? : _hide();
+            !_hideBlock ? : _hideBlock();
         }];
     }else{
         [_cover removeFromSuperview];
         [_contentView removeFromSuperview];
-        !_hide ? : _hide();
+        !_hideBlock ? : _hideBlock();
     }
 }
 
