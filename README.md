@@ -1,6 +1,6 @@
 # GKCover
 
-已支持CocoaPods：pod GKCover ,'~>1.0.5'
+已支持CocoaPods：pod GKCover ,'~>2.0.0'
 
 使用方法
 
