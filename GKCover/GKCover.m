@@ -73,7 +73,7 @@ static hideBlock _hide;
     cover.backgroundColor = [UIColor blackColor];
     cover.alpha = 0.5;
     cover.frame = fromView.bounds;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cover action:@selector(hideContentView)]];
+    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
     [fromView addSubview:cover];
     _cover = cover;
     
@@ -122,7 +122,7 @@ static hideBlock _hide;
     cover.frame = window.bounds;
     cover.backgroundColor = [UIColor blackColor];
     cover.alpha = 0.1;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cover action:@selector(hideContentView)]];
+    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
     [window addSubview:cover];
     _cover = cover;
     
@@ -168,7 +168,7 @@ static hideBlock _hide;
     cover.backgroundColor = [UIColor blackColor];
     cover.alpha = 0.5;
     cover.frame = fromView.bounds;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cover action:@selector(hideContentView)]];
+    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
     [fromView addSubview:cover];
     _cover = cover;
     
@@ -216,7 +216,7 @@ static hideBlock _hide;
     cover.frame = window.bounds;
     cover.backgroundColor = [UIColor blackColor];
     cover.alpha = 0.1;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cover action:@selector(hideContentView)]];
+    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
     [window addSubview:cover];
     _cover = cover;
     
@@ -270,7 +270,7 @@ static hideBlock _hide;
     bgView.gk_size = CGSizeMake(KScreenW, KScreenH);
     bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
-    [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:_cover action:@selector(hideContentView)]];
+    [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideContentView)]];
     return bgView;
 }
 
@@ -322,7 +322,7 @@ static hideBlock _hide;
 /**
  *  隐藏
  */
-- (void)hideContentView{
++ (void)hideContentView{
     if (_animated) {
         [UIView animateWithDuration:0.25 animations:^{
             _contentView.gk_y = KScreenH;

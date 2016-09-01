@@ -87,4 +87,14 @@ typedef void(^hideBlock)();
  */
 + (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated showBlock:(showBlock)show hideBlock:(hideBlock)hide;
 
+
+/**
+ *  显示
+ */
++ (void)showContentView;
+/**
+ *  隐藏
+ */
++ (void)hideContentView;
+
 @end
