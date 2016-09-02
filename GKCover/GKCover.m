@@ -279,7 +279,7 @@ static BOOL      _notclick;
         [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
     }
     
-    // 添加高斯模糊效果
+    // 添加高斯模糊效果,添加毛玻璃效果
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:style];
     UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
     effectview.frame = cover.bounds;
@@ -293,9 +293,6 @@ static BOOL      _notclick;
     _notclick    = notClick;
     _showBlock   = showBlock;
     _hideBlock   = hideBlock;
-    
-    // 添加毛玻璃效果
-//    [fromView addSubview:[self blurBgView]];
     
     // 显示内容view
     [self showContentView];
