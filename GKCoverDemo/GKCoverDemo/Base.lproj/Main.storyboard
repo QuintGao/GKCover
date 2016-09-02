@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Cover DemoVC-->
@@ -17,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1111.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4HD-bh-TRE">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keH-6V-kYr">
                                 <rect key="frame" x="229" y="121" width="142" height="30"/>
                                 <state key="normal" title="半透明遮罩-底部弹窗"/>
@@ -82,6 +86,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4HD-bh-TRE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2it-BS-JYK"/>
                             <constraint firstItem="Xc9-Eg-Pvn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yn-7q-VEc"/>
                             <constraint firstItem="Xc9-Eg-Pvn" firstAttribute="top" secondItem="gvF-u0-gNa" secondAttribute="bottom" constant="30" id="5rx-ec-BVX"/>
                             <constraint firstItem="51V-Yj-rt1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CbE-Oz-uBU"/>
@@ -97,14 +102,21 @@
                             <constraint firstItem="L0a-T2-BFD" firstAttribute="top" secondItem="PQP-Fg-Dr9" secondAttribute="bottom" constant="30" id="kjd-4L-5pJ"/>
                             <constraint firstItem="Ixd-Ec-vdN" firstAttribute="top" secondItem="Xc9-Eg-Pvn" secondAttribute="bottom" constant="30" id="nJi-uQ-In0"/>
                             <constraint firstItem="keH-6V-kYr" firstAttribute="top" secondItem="prC-rv-cI9" secondAttribute="bottom" constant="40" id="pc0-wf-heV"/>
+                            <constraint firstItem="4HD-bh-TRE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="q6h-Kk-CVl"/>
                             <constraint firstItem="gvF-u0-gNa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sge-po-oI2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4HD-bh-TRE" secondAttribute="bottom" id="v7i-e3-hB6"/>
                             <constraint firstItem="51V-Yj-rt1" firstAttribute="top" secondItem="vwL-zH-Bpk" secondAttribute="bottom" constant="30" id="yUe-Sc-lvc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4HD-bh-TRE" secondAttribute="trailing" id="z7c-Hi-4W0"/>
                             <constraint firstItem="Ixd-Ec-vdN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zbs-CR-5jU"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="261" y="311"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1111.jpg" width="750" height="1334"/>
+    </resources>
 </document>

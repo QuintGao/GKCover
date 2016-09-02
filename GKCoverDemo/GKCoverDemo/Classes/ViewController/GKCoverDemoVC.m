@@ -33,7 +33,8 @@
     redView.backgroundColor = [UIColor redColor];
     redView.gk_size = CGSizeMake(self.view.frame.size.width, 200);
     
-    [GKCover translucentCoverFrom:self.view content:redView animated:YES];
+//    [GKCover translucentCoverFrom:self.view content:redView animated:YES];
+    [GKCover blurWindowCenterCoverContent:nil animated:YES notClick:NO];
 }
 // 全透明遮罩-底部弹窗
 - (IBAction)transparentCover:(id)sender {

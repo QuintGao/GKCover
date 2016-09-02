@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GKCover"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = "一个简单的遮罩视图，让你的弹窗更easy!"
   s.homepage     = "https://github.com/QuintGao/GKCover"
   s.license      = "MIT"

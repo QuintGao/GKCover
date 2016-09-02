@@ -8,6 +8,7 @@
 //  github:https://github.com/QuintGao/GKCover
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+LBBlurredImage.h"
 
 #define KScreenW [UIScreen mainScreen].bounds.size.width
 #define KScreenH [UIScreen mainScreen].bounds.size.height
@@ -109,5 +110,18 @@ typedef void(^hideBlock)();
 + (void)translucentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click;
 
 + (void)transparentWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click;
+
+#pragma mark - v2.1.0
+#pragma mark - 新增毛玻璃遮罩效果
+
+/**
+ *  高斯模糊遮罩
+ *
+ *  @param contentView 弹窗的内容
+ *  @param animated    是否动画
+ *  @param notClick    是否能点击，默认为NO，可点
+ *  @param style       高斯模糊类型
+ */
++ (void)blurWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick style:(UIBlurEffectStyle)style;
 
 @end

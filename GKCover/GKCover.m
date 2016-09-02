@@ -12,13 +12,13 @@
 
 @implementation GKCover
 
-static GKCover *_cover;
-static UIView  *_fromView;
-static UIView  *_contentView;
-static BOOL     _animated;
+static GKCover   *_cover;
+static UIView    *_fromView;
+static UIView    *_contentView;
+static BOOL      _animated;
 static showBlock _showBlock;
 static hideBlock _hideBlock;
-static BOOL     _notclick;
+static BOOL      _notclick;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -163,6 +163,33 @@ static BOOL     _notclick;
     [self transparentCoverFrom:window content:contentView animated:animated notClick:click showBlock:nil hideBlock:nil];
 }
 
+#pragma mark - v2.1.0
+#pragma mark - 新增毛玻璃遮罩效果
+
++ (void)blurCoverFrom:(UIView *)fromView contentView:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick style:(UIBlurEffectStyle)style
+{
+    [self blurCoverFrom:fromView contentView:contentView animated:animated notClick:notClick style:style showBlock:nil hideBlock:nil];
+}
+
++ (void)blurCoverFrom:(UIView *)fromView contentView:(UIView *)contentView animated:(BOOL)animated style:(UIBlurEffectStyle)style showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    [self blurCoverFrom:fromView contentView:contentView animated:animated notClick:NO style:style showBlock:showBlock hideBlock:hideBlock];
+}
+
++ (void)blurWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick style:(UIBlurEffectStyle)style
+{
+    UIWindow *window = [self getKeyWindow];
+    
+    [self blurCoverFrom:window contentView:contentView animated:animated notClick:notClick style:style showBlock:nil hideBlock:nil];
+}
+
++ (void)blurWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated style:(UIBlurEffectStyle)style showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    UIWindow *window = [self getKeyWindow];
+    
+    [self translucentCoverFrom:window content:contentView animated:animated notClick:NO showBlock:showBlock hideBlock:hideBlock];
+}
+
 
 #pragma mark - 私有方法
 #pragma mark - 增加内部私有方法，v2.0.0新增
@@ -195,25 +222,14 @@ static BOOL     _notclick;
     
     // 赋值
     _fromView  = fromView;
+    _contentView = contentView;
     _animated  = animated;
     _notclick  = notClick;
     _showBlock = showBlock;
     _hideBlock = hideBlock;
     
     // 显示内容view
-    if ([fromView isKindOfClass:[UIWindow class]]) {
-        contentView.center = fromView.center;
-        [fromView addSubview:contentView];
-        _contentView = contentView;
-        if (animated) {
-            [self animationAlert:contentView];
-        }
-    }else{
-        [fromView addSubview:contentView];
-        _contentView = contentView;
-        
-        [self show];
-    }
+    [self showContentView];
 }
 
 /**
@@ -237,6 +253,7 @@ static BOOL     _notclick;
     
     // 赋值
     _fromView  = fromView;
+    _contentView = contentView;
     _animated  = animated;
     _notclick  = notClick;
     _showBlock = showBlock;
@@ -245,19 +262,43 @@ static BOOL     _notclick;
     [cover addSubview:[self transparentBgView]];
     
     // 显示内容view
-    if ([fromView isKindOfClass:[UIWindow class]]) {
-        contentView.center = fromView.center;
-        [fromView addSubview:contentView];
-        _contentView = contentView;
-        if (animated) {
-            [self animationAlert:contentView];
-        }
-    }else{
-        [fromView addSubview:contentView];
-        _contentView = contentView;
-        
-        [self show];
+    [self showContentView];
+}
+
++ (void)blurCoverFrom:(UIView *)fromView contentView:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick style:(UIBlurEffectStyle)style showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    // 创建遮罩
+    GKCover *cover = [self cover];
+    cover.frame = fromView.bounds;
+    cover.backgroundColor = [UIColor clearColor];
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    // 添加手势
+    if (!notClick) {
+        [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
     }
+    
+    // 添加高斯模糊效果
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:style];
+    UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+    effectview.frame = cover.bounds;
+    
+    [cover addSubview:effectview];
+    
+    // 赋值
+    _fromView    = fromView;
+    _contentView = contentView;
+    _animated    = animated;
+    _notclick    = notClick;
+    _showBlock   = showBlock;
+    _hideBlock   = hideBlock;
+    
+    // 添加毛玻璃效果
+//    [fromView addSubview:[self blurBgView]];
+    
+    // 显示内容view
+    [self showContentView];
 }
 
 
@@ -267,9 +308,20 @@ static BOOL     _notclick;
 + (UIImageView *)transparentBgView
 {
     UIImageView *bgView = [UIImageView new];
-    bgView.gk_size = CGSizeMake(KScreenW, KScreenH);
+    bgView.gk_size = _cover.gk_size;
     bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
+    if (!_notclick) {
+        [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
+    }
+    return bgView;
+}
+
++ (UIImageView *)blurBgView
+{
+    UIImageView *bgView = [UIImageView new];
+    bgView.gk_size = _cover.gk_size;
+    [bgView setImageToBlur:[UIImage imageNamed:@"transparent_bg"] completionBlock:nil];
     if (!_notclick) {
         [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
     }
@@ -279,6 +331,21 @@ static BOOL     _notclick;
 + (UIWindow *)getKeyWindow
 {
     return [UIApplication sharedApplication].keyWindow;
+}
+
++ (void)showContentView
+{
+    if ([_fromView isKindOfClass:[UIWindow class]]) {
+        _contentView.center = _fromView.center;
+        [_fromView addSubview:_contentView];
+        if (_animated) {
+            [self animationAlert:_contentView];
+        }
+    }else{
+        [_fromView addSubview:_contentView];
+        
+        [self show];
+    }
 }
 
 /**
