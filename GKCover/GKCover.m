@@ -8,7 +8,6 @@
 //  github:https://github.com/QuintGao/GKCover
 
 #import "GKCover.h"
-#import "UIView+GKExtension.h"
 
 @implementation GKCover
 
@@ -19,6 +18,9 @@ static BOOL      _animated;
 static showBlock _showBlock;
 static hideBlock _hideBlock;
 static BOOL      _notclick;
+static GKCoverStyle _style;
+static GKCoverShowStyle _showStyle;
+static GKCoverAnimStyle _animStyle;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -44,7 +46,7 @@ static BOOL      _notclick;
 {
     GKCover *cover = [self cover];
     cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.5;
+    cover.alpha = kAlpha;
     [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:target action:action]];
     
     return cover;
@@ -210,7 +212,7 @@ static BOOL      _notclick;
     // 设置大小和颜色
     cover.frame = fromView.bounds;
     cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.5;
+    cover.alpha = kAlpha;
     // 添加遮罩
     [fromView addSubview:cover];
     _cover = cover;
@@ -314,17 +316,6 @@ static BOOL      _notclick;
     return bgView;
 }
 
-+ (UIImageView *)blurBgView
-{
-    UIImageView *bgView = [UIImageView new];
-    bgView.gk_size = _cover.gk_size;
-    [bgView setImageToBlur:[UIImage imageNamed:@"transparent_bg"] completionBlock:nil];
-    if (!_notclick) {
-        [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
-    }
-    return bgView;
-}
-
 + (UIWindow *)getKeyWindow
 {
     return [UIApplication sharedApplication].keyWindow;
@@ -405,5 +396,226 @@ static BOOL      _notclick;
     }
 }
 
+#pragma mark - v2.2.0
+#pragma mark - 全新定义构造方法，根据不同类型，显示不同遮罩
+
+// 常见遮罩
++ (void)topCover:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated
+{
+    GKCoverAnimStyle animStyle;
+    if (animated) {
+        animStyle = GKCoverAnimStyleTop;
+    }else{
+        animStyle = GKCoverAnimStyleNone;
+    }
+    
+    [self coverFrom:fromView contentView:contentView style:style showStyle:GKCoverShowStyleTop animStyle:animStyle notClick:notClick];
+}
+
++ (void)bottomCoverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated
+{
+    GKCoverAnimStyle animStyle;
+    if (animated) {
+        animStyle = GKCoverAnimStyleBottom;
+    }else{
+        animStyle = GKCoverAnimStyleNone;
+    }
+    
+    [self coverFrom:fromView contentView:contentView style:style showStyle:GKCoverShowStyleBottom animStyle:animStyle notClick:notClick];
+}
+
++ (void)centerCover:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated
+{
+    GKCoverAnimStyle animStyle;
+    if (animated) {
+        animStyle = GKCoverAnimStyleCenter;
+    }else{
+        animStyle = GKCoverAnimStyleNone;
+    }
+    
+    [self coverFrom:[self getKeyWindow] contentView:contentView style:style showStyle:GKCoverShowStyleCenter animStyle:animStyle notClick:notClick];
+}
+
+/**
+ 显示遮罩
+ 
+ @param fromView    显示的视图上
+ @param contentView 显示的视图
+ @param style       遮罩类型
+ @param showStyle   显示类型
+ @param animStyle   动画类型
+ @param notClick    是否不可点击
+ */
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick
+{
+    [self coverFrom:fromView contentView:contentView style:style showStyle:showStyle animStyle:animStyle notClick:notClick showBlock:nil hideBlock:nil];
+}
+
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    _style       = style;
+    _showStyle   = showStyle;
+    _animStyle   = animStyle;
+    _fromView    = fromView;
+    _contentView = contentView;
+    _notclick    = notClick;
+    _showBlock   = showBlock;
+    _hideBlock   = hideBlock;
+    
+    // 创建遮罩
+    GKCover *cover = [self cover];
+    // 设置大小和颜色
+    cover.frame = fromView.bounds;
+    // 添加遮罩
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    if (style == GKCoverStyleTranslucent) { // 半透明
+        cover.backgroundColor = [UIColor blackColor];
+        cover.alpha = kAlpha;
+        [self addTap:cover];
+    }else if (style == GKCoverStyleTransparent){  // 全透明
+        cover.backgroundColor = [UIColor clearColor];
+        [cover addSubview:[self gk_transparentBgView]];
+    }else{ // 毛玻璃，高斯模糊
+        cover.backgroundColor = [UIColor clearColor];
+        [self addTap:cover];
+        // 添加高斯模糊效果,添加毛玻璃效果
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+        effectview.frame = cover.bounds;
+        
+        [cover addSubview:effectview];
+    }
+    
+    [self showView];
+}
+
+/**
+ *  透明图片
+ */
++ (UIImageView *)gk_transparentBgView
+{
+    UIImageView *bgView = [UIImageView new];
+    bgView.gk_size = _cover.gk_size;
+    bgView.image = [UIImage imageNamed:@"transparent_bg"];
+    bgView.userInteractionEnabled = YES;
+    [self addTap:bgView];
+    return bgView;
+}
+
++ (void)showView
+{
+    [_fromView addSubview:_contentView];
+    _contentView.gk_centerX = _fromView.gk_centerX;
+    
+    if (_showStyle == GKCoverShowStyleTop) {
+        if (_animStyle == GKCoverAnimStyleTop) {
+            _contentView.gk_y = -_contentView.gk_height;
+            [UIView animateWithDuration:kAnimDuration animations:^{
+                _contentView.gk_y = 0;
+            }completion:^(BOOL finished) {
+                !_showBlock ? : _showBlock();
+            }];
+        }else{
+            !_showBlock ? : _showBlock();
+            _contentView.gk_y = 0;
+        }
+    }else if (_showStyle == GKCoverShowStyleCenter){
+        if (_animStyle == GKCoverAnimStyleTop) { // 上进下出
+            _contentView.gk_y = -_contentView.gk_height;
+            [UIView animateWithDuration:kAnimDuration animations:^{
+                _contentView.center = _fromView.center;
+            }completion:^(BOOL finished) {
+                !_showBlock ? : _showBlock();
+            }];
+        }else if (_animStyle == GKCoverAnimStyleCenter) { // 中间动画
+            _contentView.center = _fromView.center;
+            [self animationAlert:_contentView];
+        }else if (_animStyle == GKCoverAnimStyleBottom) { // 下进上出
+            _contentView.gk_y = KScreenH;
+            [UIView animateWithDuration:kAnimDuration animations:^{
+                _contentView.center = _fromView.center;
+            }completion:^(BOOL finished) {
+                !_showBlock ? : _showBlock();
+            }];
+        }else{ // 无动画
+            _contentView.center = _fromView.center;
+            _showBlock ? : _showBlock();
+        }
+    }else if (_showStyle == GKCoverShowStyleBottom){
+        if (_animStyle == GKCoverAnimStyleBottom) {
+            _contentView.gk_y = KScreenH;
+            [UIView animateWithDuration:0.25 animations:^{
+                _contentView.gk_y = KScreenH - _contentView.gk_height;
+            }completion:^(BOOL finished) {
+                !_showBlock ? : _showBlock();
+            }];
+        }else{
+            !_showBlock ? : _showBlock();
+            _contentView.gk_y = KScreenH - _contentView.gk_height;
+        }
+    }
+}
+
++ (void)hideView
+{
+    if (_showStyle == GKCoverShowStyleTop) {
+        if (_animStyle == GKCoverAnimStyleTop) { // 上进上出
+            [UIView animateWithDuration:kAnimDuration animations:^{
+                _contentView.gk_y = -_contentView.gk_height;
+            }completion:^(BOOL finished) {
+                [self remove];
+            }];
+        }else{
+            _contentView.gk_y = -_contentView.gk_height;
+            [self remove];
+        }
+    }else if (_showStyle == GKCoverShowStyleCenter){
+        if (_animStyle == GKCoverAnimStyleTop) { // 上进下出
+            [UIView animateWithDuration:kAnimDuration animations:^{
+                _contentView.gk_y = KScreenH;
+            }completion:^(BOOL finished) {
+                [self remove];
+            }];
+        }else if (_animStyle == GKCoverAnimStyleCenter) { // 中间动画
+            [self remove];
+        }else if (_animStyle == GKCoverAnimStyleBottom) { // 下进上出
+            [UIView animateWithDuration:kAnimDuration animations:^{
+                _contentView.gk_y = -_contentView.gk_height;
+            }completion:^(BOOL finished) {
+                [self remove];
+            }];
+        }else{ // 无动画
+            _contentView.center = _fromView.center;
+            [self remove];
+        }
+    }else if (_showStyle == GKCoverShowStyleBottom){
+        if (_animStyle == GKCoverAnimStyleBottom) {  // 下进下出
+            [UIView animateWithDuration:0.25 animations:^{
+                _contentView.gk_y = KScreenH;
+            }completion:^(BOOL finished) {
+                [self remove];
+            }];
+        }else{
+            _contentView.gk_y = KScreenH;
+            [self remove];
+        }
+    }
+}
+
++ (void)addTap:(UIView *)view
+{
+    if (!_notclick) {
+        [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)]];
+    }
+}
+
++ (void)remove
+{
+    [_cover removeFromSuperview];
+    [_contentView removeFromSuperview];
+    !_hideBlock ? : _hideBlock();
+}
 
 @end

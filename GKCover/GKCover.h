@@ -8,15 +8,13 @@
 //  github:https://github.com/QuintGao/GKCover
 
 #import <UIKit/UIKit.h>
-#import "UIImageView+LBBlurredImage.h"
-
-#define KScreenW [UIScreen mainScreen].bounds.size.width
-#define KScreenH [UIScreen mainScreen].bounds.size.height
+#import "GKCoverEnum.h"
+#import "UIView+GKExtension.h"
 
 typedef void(^showBlock)();
 typedef void(^hideBlock)();
 
-@interface GKCover : UIView
+@interface GKCover : UIView<CAAnimationDelegate>
 
 + (instancetype)cover;
 
@@ -123,5 +121,30 @@ typedef void(^hideBlock)();
  *  @param style       高斯模糊类型
  */
 + (void)blurWindowCenterCoverContent:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick style:(UIBlurEffectStyle)style;
+
+
+#pragma mark - v2.2.0
+#pragma mark - 全新定义构造方法，根据不同类型，显示不同遮罩
+
+// 常见遮罩
++ (void)topCover:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated;
+
++ (void)bottomCoverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated;
+
++ (void)centerCover:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated;
+
+
+
+/**
+ 显示遮罩
+
+ @param fromView    显示的视图上
+ @param contentView 显示的视图
+ @param style       遮罩类型
+ @param showStyle   显示类型
+ @param animStyle   动画类型
+ @param notClick    是否不可点击
+ */
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick;
 
 @end

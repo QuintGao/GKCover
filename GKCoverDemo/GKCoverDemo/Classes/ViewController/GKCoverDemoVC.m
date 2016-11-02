@@ -32,8 +32,7 @@
     redView.backgroundColor = [UIColor redColor];
     redView.gk_size = CGSizeMake(100, 200);
     
-//    [GKCover translucentCoverFrom:self.view content:redView animated:YES];
-    [GKCover blurWindowCenterCoverContent:redView animated:YES notClick:NO style:UIBlurEffectStyleLight];
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:redView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:NO];
 }
 // 全透明遮罩-底部弹窗
 - (IBAction)transparentCover:(id)sender {
@@ -41,7 +40,7 @@
     blueView.backgroundColor = [UIColor blueColor];
     blueView.gk_size = CGSizeMake(self.view.frame.size.width, 200);
     
-    [GKCover transparentCoverFrom:self.view content:blueView animated:YES];
+    [GKCover coverFrom:self.view contentView:blueView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
 }
 
 // 半透明遮罩-中间弹窗

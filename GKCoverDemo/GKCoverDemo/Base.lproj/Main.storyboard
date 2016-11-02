@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Cover DemoVC-->
@@ -15,76 +19,76 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1111.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4HD-bh-TRE">
-                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keH-6V-kYr">
-                                <rect key="frame" x="229" y="121" width="142" height="30"/>
+                                <rect key="frame" x="115" y="121" width="145" height="30"/>
                                 <state key="normal" title="半透明遮罩-底部弹窗"/>
                                 <connections>
                                     <action selector="translucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xeS-I6-G3X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwL-zH-Bpk">
-                                <rect key="frame" x="229" y="181" width="142" height="30"/>
+                                <rect key="frame" x="115" y="181" width="145" height="30"/>
                                 <state key="normal" title="全透明遮罩-底部弹窗"/>
                                 <connections>
                                     <action selector="transparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5O-Ox-vBG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51V-Yj-rt1">
-                                <rect key="frame" x="229" y="241" width="142" height="30"/>
+                                <rect key="frame" x="115" y="241" width="145" height="30"/>
                                 <state key="normal" title="半透明遮罩-中间弹窗"/>
                                 <connections>
                                     <action selector="windowCenterTranslucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3PR-Jt-qH5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQP-Fg-Dr9">
-                                <rect key="frame" x="229" y="301" width="142" height="30"/>
+                                <rect key="frame" x="115" y="301" width="145" height="30"/>
                                 <state key="normal" title="全透明遮罩-中间弹窗"/>
                                 <connections>
                                     <action selector="windowCenterTransparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QrV-IJ-SbD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GKCoverDemo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prC-rv-cI9">
-                                <rect key="frame" x="243" y="60" width="113" height="21"/>
+                                <rect key="frame" x="131" y="60" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-T2-BFD">
-                                <rect key="frame" x="221" y="361" width="157" height="30"/>
+                                <rect key="frame" x="107.5" y="361" width="160" height="30"/>
                                 <state key="normal" title="半透明遮罩-自定义弹窗"/>
                                 <connections>
                                     <action selector="customTranslucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIB-1T-Jxu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-u0-gNa">
-                                <rect key="frame" x="221" y="421" width="157" height="30"/>
+                                <rect key="frame" x="107.5" y="421" width="160" height="30"/>
                                 <state key="normal" title="全透明遮罩-自定义弹窗"/>
                                 <connections>
                                     <action selector="customTransparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nfn-K7-MUU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-Eg-Pvn">
-                                <rect key="frame" x="240" y="481" width="120" height="30"/>
+                                <rect key="frame" x="127" y="481" width="121" height="30"/>
                                 <state key="normal" title="半透明遮罩-block"/>
                                 <connections>
                                     <action selector="coverWithBlock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Thr-2N-wcp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixd-Ec-vdN">
-                                <rect key="frame" x="240" y="541" width="120" height="30"/>
+                                <rect key="frame" x="127" y="541" width="121" height="30"/>
                                 <state key="normal" title="全透明遮罩-block"/>
                                 <connections>
                                     <action selector="transparentCoverWithBlock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRG-bV-fsH"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4HD-bh-TRE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2it-BS-JYK"/>
                             <constraint firstItem="Xc9-Eg-Pvn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yn-7q-VEc"/>
