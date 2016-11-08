@@ -147,4 +147,7 @@ typedef void(^hideBlock)();
  */
 + (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick;
 
++ (void)showView;
++ (void)hideView;
+
 @end

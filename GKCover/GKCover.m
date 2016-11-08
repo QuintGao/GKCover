@@ -541,7 +541,7 @@ static GKCoverAnimStyle _animStyle;
             }];
         }else{ // 无动画
             _contentView.center = _fromView.center;
-            _showBlock ? : _showBlock();
+            !_showBlock ? : _showBlock();
         }
     }else if (_showStyle == GKCoverShowStyleBottom){
         if (_animStyle == GKCoverAnimStyleBottom) {
