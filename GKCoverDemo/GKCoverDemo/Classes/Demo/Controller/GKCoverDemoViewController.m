@@ -16,22 +16,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+//    self.navigationController.navigationBar.translucent = NO;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)topClick:(id)sender {
+    
+    UIImage *topImage = [UIImage imageNamed:@"top1"];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:topImage];
+    imgView.gk_size = CGSizeMake(KScreenW, KScreenW * topImage.size.height / topImage.size.width);
+    
+    __block UIView *view = [UIView new];
+    view.frame = CGRectMake(0, 64, KScreenW, KScreenH - 64);
+    view.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:view];
+    
+    [GKCover coverFrom:view contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop animStyle:GKCoverAnimStyleTop notClick:NO showBlock:nil hideBlock:^{
+        [view removeFromSuperview];
+        view = nil;
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)centerClick:(id)sender {
+    UIImage *centerImage = [UIImage imageNamed:@"share2"];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:centerImage];
+    imgView.gk_size = CGSizeMake(300, 340);
+    imgView.userInteractionEnabled = YES;
+    [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
+    
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:YES];
 }
-*/
+
+- (IBAction)bottomClick:(id)sender {
+    
+    UIImage *bottomImage = [UIImage imageNamed:@"share1"];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:bottomImage];
+    imgView.gk_size = CGSizeMake(KScreenW, KScreenW * bottomImage.size.height / bottomImage.size.width);
+    
+    [GKCover coverFrom:self.view contentView:imgView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
+}
+
+- (void)imgClick
+{
+    [GKCover hideView];
+}
 
 @end

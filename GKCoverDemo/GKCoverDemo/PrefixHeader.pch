@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  GKCoverDemo
+//
+//  Created by 高坤 on 2016/11/17.
+//  Copyright © 2016年 高坤. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "GKCover.h"
+
+#endif /* PrefixHeader_pch */
