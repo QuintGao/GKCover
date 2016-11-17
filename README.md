@@ -57,6 +57,9 @@ UIView *customView = [UIView new];
         NSLog(@"弹窗消失了，555");
     }];
 
+
+```
+
 5. 新增一行代码实现各种弹窗
 
 ```
@@ -71,7 +74,6 @@ UIView *customView = [UIView new];
 @param notClick    是否不可点击
 */
 + (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick;
-
 ```
 
 Demo效果图：
