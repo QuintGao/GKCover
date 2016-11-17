@@ -63,6 +63,11 @@ Demo效果图：
 
 ![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/GKCoverDemo-gif.gif)
 
+新增demo效果图
+![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/demo_top.png)
+![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/demo_center.png)
+![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/demo_bottom.png)
+
 更新日志：
 
 ```
@@ -80,6 +85,9 @@ Demo效果图：
     1.增加类型的判断（毛玻璃，全透明，半透明）
     2.增加显示类型的判断（上，中，下）
     3.增加动画类型的判断（从上弹出，中间弹出，底部弹出，无动画）
+2.3.0版本：2016.11.17
+    1. 部分内容优化
+    2. 增加2.2.0的使用方法demo
 ```
 
 技术支持：
