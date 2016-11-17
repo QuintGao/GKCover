@@ -57,6 +57,21 @@ UIView *customView = [UIView new];
         NSLog(@"弹窗消失了，555");
     }];
 
+5. 新增一行代码实现各种弹窗
+
+```
+/**
+显示遮罩
+
+@param fromView    显示的视图上
+@param contentView 显示的视图
+@param style       遮罩类型
+@param showStyle   显示类型
+@param animStyle   动画类型
+@param notClick    是否不可点击
+*/
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick;
+
 ```
 
 Demo效果图：
