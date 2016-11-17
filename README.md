@@ -63,9 +63,18 @@ Demo效果图：
 
 ![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/GKCoverDemo-gif.gif)
 
-新增demo效果图
+新增demo效果图：
+
+顶部弹出
+
 ![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/demo_top.png)
+
+中间弹出
+
 ![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/demo_center.png)
+
+底部弹出
+
 ![image](https://github.com/QuintGao/GKCover/blob/master/GKCoverDemo/demo_bottom.png)
 
 更新日志：
