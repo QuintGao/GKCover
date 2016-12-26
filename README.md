@@ -1,6 +1,6 @@
 # GKCover
 
-已支持CocoaPods：pod GKCover ,'~>2.1.0'
+已支持CocoaPods：pod 'GKCover' ,'~>2.3.0'
 
 使用方法
 
@@ -10,7 +10,7 @@
     UIView *redView = [UIView new];
     redView.backgroundColor = [UIColor redColor];
     redView.gk_size = CGSizeMake(KScreenW, 200);
-    
+
     [GKCover translucentCoverFrom:self.view content:redView animated:YES];
     
 ```
@@ -20,7 +20,7 @@
     UIView *greenView = [UIView new];
     greenView.backgroundColor = [UIColor greenColor];
     greenView.gk_size = CGSizeMake(240, 160);
-    0.
+    
     [GKCover translucentWindowCenterCoverContent:greenView animated:YES];
 ```
 3.自定义弹窗
