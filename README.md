@@ -74,6 +74,12 @@ UIView *customView = [UIView new];
 @param notClick    是否不可点击
 */
 + (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick;
+
+最全方法：增加遮罩显示和隐藏的block方法
+
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock;
+
+
 ```
 
 Demo效果图：
