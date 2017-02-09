@@ -31,7 +31,10 @@
     view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:view];
     
-    [GKCover coverFrom:view contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop animStyle:GKCoverAnimStyleTop notClick:NO showBlock:nil hideBlock:^{
+    [GKCover coverFrom:view contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop animStyle:GKCoverAnimStyleTop notClick:NO showBlock:^{
+        NSLog(@"遮罩显示了");
+    } hideBlock:^{
+        NSLog(@"遮罩隐藏了");
         [view removeFromSuperview];
         view = nil;
     }];
