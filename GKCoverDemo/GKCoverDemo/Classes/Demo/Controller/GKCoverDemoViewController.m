@@ -48,6 +48,12 @@
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
     [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:YES];
+    
+    if ([GKCover hasCover]) {
+        NSLog(@"遮罩已存在");
+    }else{
+        NSLog(@"遮罩不存在");
+    }
 }
 
 - (IBAction)bottomClick:(id)sender {
@@ -62,6 +68,12 @@
 - (void)imgClick
 {
     [GKCover hideView];
+    
+    if ([GKCover hasCover]) {
+        NSLog(@"遮罩已存在");
+    }else{
+        NSLog(@"遮罩不存在");
+    }
 }
 
 @end

@@ -22,6 +22,8 @@ static GKCoverStyle     _style;
 static GKCoverShowStyle _showStyle;
 static GKCoverAnimStyle _animStyle;
 
+static BOOL             _hasCover;
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -35,6 +37,8 @@ static GKCoverAnimStyle _animStyle;
 
 + (instancetype)cover
 {
+    // cover一经初始化就存在
+    _hasCover = YES;
     return [[self alloc] init];
 }
 
@@ -560,6 +564,9 @@ static GKCoverAnimStyle _animStyle;
 
 + (void)hideView
 {
+    // 这里为了防止动画未完成导致的不能及时判断cover是否存在，实际上cover再这里并没有销毁
+    _hasCover = NO;
+    
     if (_showStyle == GKCoverShowStyleTop) {
         if (_animStyle == GKCoverAnimStyleTop) { // 上进上出
             [UIView animateWithDuration:kAnimDuration animations:^{
@@ -616,14 +623,17 @@ static GKCoverAnimStyle _animStyle;
     [_cover removeFromSuperview];
     [_contentView removeFromSuperview];
     !_hideBlock ? : _hideBlock();
+    
+    _cover       = nil;
+    _contentView = nil;
 }
 
-#pragma mark - v2.2.2
+#pragma mark - v2.3.1
 #pragma mark - 增加判断是否已经有cover的方法
 
 + (BOOL)hasCover
 {
-    return _cover ? YES : NO;
+    return _hasCover;
 }
 
 @end
