@@ -623,7 +623,7 @@ static GKCoverAnimStyle _animStyle;
 
 + (BOOL)hasCover
 {
-    return _cover;
+    return _cover ? YES : NO;
 }
 
 @end
