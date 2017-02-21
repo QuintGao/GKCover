@@ -152,4 +152,9 @@ typedef void(^hideBlock)();
 + (void)showView;
 + (void)hideView;
 
+#pragma mark - v2.2.2
+#pragma mark - 增加判断是否已经有cover的方法
+
++ (BOOL)hasCover;
+
 @end

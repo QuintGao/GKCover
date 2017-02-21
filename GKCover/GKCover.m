@@ -11,14 +11,14 @@
 
 @implementation GKCover
 
-static GKCover   *_cover;
-static UIView    *_fromView;
-static UIView    *_contentView;
-static BOOL      _animated;
-static showBlock _showBlock;
-static hideBlock _hideBlock;
-static BOOL      _notclick;
-static GKCoverStyle _style;
+static GKCover          *_cover;
+static UIView           *_fromView;
+static UIView           *_contentView;
+static BOOL             _animated;
+static showBlock        _showBlock;
+static hideBlock        _hideBlock;
+static BOOL             _notclick;
+static GKCoverStyle     _style;
 static GKCoverShowStyle _showStyle;
 static GKCoverAnimStyle _animStyle;
 
@@ -616,6 +616,14 @@ static GKCoverAnimStyle _animStyle;
     [_cover removeFromSuperview];
     [_contentView removeFromSuperview];
     !_hideBlock ? : _hideBlock();
+}
+
+#pragma mark - v2.2.2
+#pragma mark - 增加判断是否已经有cover的方法
+
++ (BOOL)hasCover
+{
+    return _cover;
 }
 
 @end

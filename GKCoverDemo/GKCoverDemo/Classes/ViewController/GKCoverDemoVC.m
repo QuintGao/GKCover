@@ -33,6 +33,13 @@
     redView.gk_size = CGSizeMake(100, 200);
     
     [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:redView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:NO];
+    
+    
+    if ([GKCover hasCover]) {
+        NSLog(@"遮罩已存在");
+    }else{
+        NSLog(@"遮罩不存在");
+    }
 }
 // 全透明遮罩-底部弹窗
 - (IBAction)transparentCover:(id)sender {
