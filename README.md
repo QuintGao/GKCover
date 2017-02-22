@@ -1,6 +1,8 @@
 # GKCover
 
-已支持CocoaPods：pod 'GKCover' ,'~>2.3.0'
+已支持CocoaPods：pod 'GKCover' ,'~>2.3.1'
+
+最新版本2.3.1已支持判断遮罩是否存在的方法：[GKCover hasCover]
 
 使用方法
 
