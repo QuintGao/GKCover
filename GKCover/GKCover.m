@@ -9,20 +9,20 @@
 
 #import "GKCover.h"
 
+#pragma mark - 内部记录
+static GKCover          *_cover;        // 遮罩
+static UIView           *_fromView;     // 显示在此视图上
+static UIView           *_contentView;  // 显示的视图
+static BOOL             _animated;      // 是否需要动画
+static showBlock        _showBlock;     // 显示时的回调block
+static hideBlock        _hideBlock;     // 隐藏时的回调block
+static BOOL             _notclick;      // 是否能点击的判断
+static GKCoverStyle     _style;         // 遮罩类型
+static GKCoverShowStyle _showStyle;     // 显示类型
+static GKCoverAnimStyle _animStyle;     // 动画类型
+static BOOL             _hasCover;      // 遮罩是否已经显示的判断值
+
 @implementation GKCover
-
-static GKCover          *_cover;
-static UIView           *_fromView;
-static UIView           *_contentView;
-static BOOL             _animated;
-static showBlock        _showBlock;
-static hideBlock        _hideBlock;
-static BOOL             _notclick;
-static GKCoverStyle     _style;
-static GKCoverShowStyle _showStyle;
-static GKCoverAnimStyle _animStyle;
-
-static BOOL             _hasCover;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
