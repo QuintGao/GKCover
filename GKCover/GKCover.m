@@ -22,6 +22,10 @@ static GKCoverShowStyle _showStyle;     // 显示类型
 static GKCoverAnimStyle _animStyle;     // 动画类型
 static BOOL             _hasCover;      // 遮罩是否已经显示的判断值
 
+// 分离动画类型
+static GKCoverShowAnimStyle _showAnimStyle;
+static GKCoverHideAnimStyle _hideAnimStyle;
+
 @implementation GKCover
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -611,10 +615,236 @@ static BOOL             _hasCover;      // 遮罩是否已经显示的判断值
     }
 }
 
+#pragma mark - v2.3.1
+#pragma mark - 增加判断是否已经有cover的方法
+
++ (BOOL)hasCover
+{
+    return _hasCover;
+}
+
+#pragma mark - v2.4.0
+#pragma mark - 分离弹出和隐藏时的动画
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick
+{
+    [self coverFrom:fromView contentView:contentView style:style showStyle:showStyle showAnimStyle:showAnimStyle hideAnimStyle:hideAnimStyle notClick:notClick showBlock:nil hideBlock:nil];
+}
+
++ (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
+{
+    _style         = style;
+    _showStyle     = showStyle;
+    _showAnimStyle = showAnimStyle;
+    _hideAnimStyle = hideAnimStyle;
+    _fromView      = fromView;
+    _contentView   = contentView;
+    _notclick      = notClick;
+    _showBlock     = showBlock;
+    _hideBlock     = hideBlock;
+    
+    // 创建遮罩
+    GKCover *cover = [self cover];
+    // 设置大小和颜色
+    cover.frame = fromView.bounds;
+    // 添加遮罩
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    switch (style) {
+        case GKCoverStyleTranslucent: // 半透明
+            [self setupTranslucentCover:cover];
+            break;
+        case GKCoverStyleTransparent: // 全透明
+            [self setupTransparentCover:cover];
+            break;
+        case GKCoverStyleBlur:        // 高斯模糊
+            [self setupBlurCover:cover];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self showCover];
+}
+
+
++ (void)showCover
+{
+    [_fromView addSubview:_contentView];
+    _contentView.gk_centerX = _fromView.gk_centerX;
+    
+    switch (_showStyle) {
+        case GKCoverShowStyleTop:  // 显示在顶部
+        {
+            if (_showAnimStyle == GKCoverShowAnimStyleTop) {
+                _contentView.gk_y = -_contentView.gk_height;
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.gk_y = 0;
+                }completion:^(BOOL finished) {
+                    !_showBlock ? : _showBlock();
+                }];
+            }else{
+                !_showBlock ? : _showBlock();
+                _contentView.gk_y = 0;
+            }
+        }
+            break;
+        case GKCoverShowStyleCenter: // 显示在中间
+        {
+            if (_showAnimStyle == GKCoverShowAnimStyleTop) { // 上进
+                _contentView.gk_y = -_contentView.gk_height;
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.center = _fromView.center;
+                }completion:^(BOOL finished) {
+                    !_showBlock ? : _showBlock();
+                }];
+            }else if (_showAnimStyle == GKCoverShowAnimStyleCenter) { // 中间动画
+                _contentView.center = _fromView.center;
+                [self animationAlert:_contentView];
+            }else if (_showAnimStyle == GKCoverShowAnimStyleBottom) { // 下进
+                _contentView.gk_y = KScreenH;
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.center = _fromView.center;
+                }completion:^(BOOL finished) {
+                    !_showBlock ? : _showBlock();
+                }];
+            }else{ // 无动画
+                _contentView.center = _fromView.center;
+                !_showBlock ? : _showBlock();
+            }
+        }
+            break;
+        case GKCoverShowStyleBottom:  // 显示在底部
+        {
+            if (_showAnimStyle == GKCoverShowAnimStyleBottom) {
+                _contentView.gk_y = KScreenH;
+                [UIView animateWithDuration:0.25 animations:^{
+                    _contentView.gk_y = KScreenH - _contentView.gk_height;
+                }completion:^(BOOL finished) {
+                    !_showBlock ? : _showBlock();
+                }];
+            }else{
+                !_showBlock ? : _showBlock();
+                _contentView.gk_y = KScreenH - _contentView.gk_height;
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
++ (void)hideCover
+{
+    // 这里为了防止动画未完成导致的不能及时判断cover是否存在，实际上cover再这里并没有销毁
+    _hasCover = NO;
+    
+    switch (_showStyle) {
+        case GKCoverShowStyleTop:  // 显示在顶部
+        {
+            if (_hideAnimStyle == GKCoverHideAnimStyleTop) {
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.gk_y = -_contentView.gk_height;
+                }completion:^(BOOL finished) {
+                    [self remove];
+                }];
+            }else{
+                _contentView.gk_y = -_contentView.gk_height;
+                [self remove];
+            }
+        }
+            break;
+        case GKCoverShowStyleCenter:  // 显示在中间
+        {
+            if (_hideAnimStyle == GKCoverHideAnimStyleTop) { // 上出
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.gk_y = -_contentView.gk_height;
+                }completion:^(BOOL finished) {
+                    [self remove];
+                }];
+            }else if (_hideAnimStyle == GKCoverHideAnimStyleCenter) { // 中间动画
+                [self remove];
+            }else if (_hideAnimStyle == GKCoverHideAnimStyleBottom) { // 下出
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.gk_y = KScreenH;
+                }completion:^(BOOL finished) {
+                    [self remove];
+                }];
+            }else{ // 无动画
+                _contentView.center = _fromView.center;
+                [self remove];
+            }
+        }
+            break;
+        case GKCoverShowStyleBottom:  // 显示在底部
+        {
+            if (_hideAnimStyle == GKCoverHideAnimStyleBottom) {
+                [UIView animateWithDuration:0.25 animations:^{
+                    _contentView.gk_y = KScreenH;
+                }completion:^(BOOL finished) {
+                    [self remove];
+                }];
+            }else{
+                _contentView.gk_y = KScreenH;
+                [self remove];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - Private Method
+
+/**
+ 半透明遮罩
+ */
++ (void)setupTranslucentCover:(UIView *)cover
+{
+    cover.backgroundColor = [UIColor blackColor];
+    cover.alpha = kAlpha;
+    [self coverAddTap:cover];
+}
+
+/**
+ 全透明遮罩
+ */
++ (void)setupTransparentCover:(UIView *)cover
+{
+    cover.backgroundColor = [UIColor clearColor];
+    [cover addSubview:[self gk_transparentBgView]];
+}
+
+/**
+ 高斯模糊遮罩
+ */
++ (void)setupBlurCover:(UIView *)cover
+{
+    cover.backgroundColor = [UIColor clearColor];
+    [self coverAddTap:cover];
+    // 添加高斯模糊效果,添加毛玻璃效果
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+    effectview.frame = cover.bounds;
+    
+    [cover addSubview:effectview];
+}
+
 + (void)addTap:(UIView *)view
 {
     if (!_notclick) {
         [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)]];
+    }
+}
+
++ (void)coverAddTap:(UIView *)cover
+{
+    if (!_notclick) {
+        [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideCover)]];
     }
 }
 
@@ -626,14 +856,6 @@ static BOOL             _hasCover;      // 遮罩是否已经显示的判断值
     
     _cover       = nil;
     _contentView = nil;
-}
-
-#pragma mark - v2.3.1
-#pragma mark - 增加判断是否已经有cover的方法
-
-+ (BOOL)hasCover
-{
-    return _hasCover;
 }
 
 @end

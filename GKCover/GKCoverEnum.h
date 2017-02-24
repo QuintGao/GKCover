@@ -38,4 +38,20 @@ typedef NS_ENUM(NSUInteger, GKCoverAnimStyle) {
     GKCoverAnimStyleNone      // 无动画
 };
 
+/** 弹窗显示时的动画类型 */
+typedef NS_ENUM(NSUInteger, GKCoverShowAnimStyle) {
+    GKCoverShowAnimStyleTop,     // 从上弹出
+    GKCoverShowAnimStyleCenter,  // 中间弹出
+    GKCoverShowAnimStyleBottom,  // 底部弹出
+    GKCoverShowAnimStyleNone     // 无动画
+};
+
+/** 弹窗隐藏时的动画类型 */
+typedef NS_ENUM(NSUInteger, GKCoverHideAnimStyle) {
+    GKCoverHideAnimStyleTop,     // 从上隐藏
+    GKCoverHideAnimStyleCenter,  // 中间隐藏（直接消失）
+    GKCoverHideAnimStyleBottom,  // 底部隐藏
+    GKCoverHideAnimStyleNone     // 无动画
+};
+
 #endif /* GKCoverEnum_h */
