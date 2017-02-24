@@ -131,3 +131,6 @@ Demo效果图：
 [csdn博客地址](http://blog.csdn.net/u010565269/article/details/52332027)
 
 [简书地址](http://www.jianshu.com/p/866a79a95963)
+
+本人QQ:1094887059
+交流群：529040270

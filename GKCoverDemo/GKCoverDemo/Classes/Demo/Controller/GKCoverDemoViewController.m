@@ -47,7 +47,7 @@
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:YES];
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:NO];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -62,7 +62,7 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:bottomImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * bottomImage.size.height / bottomImage.size.width);
     
-    [GKCover coverFrom:self.view contentView:imgView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
+    [GKCover coverFrom:self.view contentView:imgView style:GKCoverStyleBlur showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
 }
 
 - (void)imgClick
