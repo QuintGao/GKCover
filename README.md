@@ -1,6 +1,8 @@
 # GKCover
 
-已支持CocoaPods：pod 'GKCover' ,'~>2.3.1'
+已支持CocoaPods：pod 'GKCover' ,'~>2.4.0'
+
+版本2.4.0更新：分离遮罩弹出和隐藏时的动画，当前隐藏遮罩方法[GKCover hideCover]
 
 最新版本2.3.1已支持判断遮罩是否存在的方法：[GKCover hasCover]
 
@@ -124,6 +126,9 @@ Demo效果图：
     2. 增加2.2.0的使用方法demo
 2.3.1版本：2017.2.21
     1. 新增判断遮罩是否已存在的方法[GKCover hasCover];
+2.4.0版本：2017.2.28
+    1. 分离弹出和隐藏时的动画
+    2. 当前版本的隐藏方法改为[GKCover hideCover]防止与以前版本的冲突
 ```
 
 技术支持：
