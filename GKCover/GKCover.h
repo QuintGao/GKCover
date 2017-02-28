@@ -18,7 +18,7 @@ typedef void(^hideBlock)();
 
 + (instancetype)cover;
 
-#pragma makr - 自定义遮罩- (可实现固定遮罩的效果)
+#pragma mark - 自定义遮罩- (可实现固定遮罩的效果)
 /**
  *  半透明遮罩构造方法
  */
@@ -132,8 +132,6 @@ typedef void(^hideBlock)();
 + (void)bottomCoverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated;
 
 + (void)centerCover:(UIView *)contentView style:(GKCoverStyle)style notClick:(BOOL)notClick animated:(BOOL)animated;
-
-
 
 /**
  显示遮罩

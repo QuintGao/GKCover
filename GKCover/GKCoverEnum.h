@@ -38,6 +38,8 @@ typedef NS_ENUM(NSUInteger, GKCoverAnimStyle) {
     GKCoverAnimStyleNone      // 无动画
 };
 
+
+#pragma mark - v2.4.0新增
 /** 弹窗显示时的动画类型 */
 typedef NS_ENUM(NSUInteger, GKCoverShowAnimStyle) {
     GKCoverShowAnimStyleTop,     // 从上弹出
