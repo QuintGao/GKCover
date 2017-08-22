@@ -211,8 +211,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
  *  @param contentView       遮罩上面显示的内容view
  *  @param animated          是否有动画 ：默认是NO
  *  @param notClick          是否不能点击：默认是NO，即能点击
- *  @param show              显示时的block
- *  @param transparentBgView 隐藏时的block
+ *  @param showBlock         显示时的block
+ *  @param hideBlock         隐藏时的block
  */
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
 {
