@@ -19,6 +19,8 @@
 		6034DFE21D6D65DC000A7942 /* GKCoverDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFE11D6D65DC000A7942 /* GKCoverDemoTests.m */; };
 		6034DFED1D6D65DC000A7942 /* GKCoverDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFEC1D6D65DC000A7942 /* GKCoverDemoUITests.m */; };
 		6043D7FF1E60208D00186421 /* GKCoverDemo_v240.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D7FE1E60208D00186421 /* GKCoverDemo_v240.m */; };
+		60A9A1571E8E3F6E00E714D4 /* GKCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A9A1561E8E3F6E00E714D4 /* GKCoverView.m */; };
+		60A9A1591E8E3F7800E714D4 /* GKCoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A9A1581E8E3F7800E714D4 /* GKCoverView.xib */; };
 		60FC8C4F1DCE1A4D0069F86C /* GKCoverDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FC8C4E1DCE1A4D0069F86C /* GKCoverDemoViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,9 @@
 		6034DFEE1D6D65DC000A7942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6043D7FD1E60208D00186421 /* GKCoverDemo_v240.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverDemo_v240.h; sourceTree = "<group>"; };
 		6043D7FE1E60208D00186421 /* GKCoverDemo_v240.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCoverDemo_v240.m; sourceTree = "<group>"; };
+		60A9A1551E8E3F6E00E714D4 /* GKCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverView.h; sourceTree = "<group>"; };
+		60A9A1561E8E3F6E00E714D4 /* GKCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCoverView.m; sourceTree = "<group>"; };
+		60A9A1581E8E3F7800E714D4 /* GKCoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKCoverView.xib; sourceTree = "<group>"; };
 		60AC7C7C1DDDA68900579B7C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		60F9480A1DC9F1D700CF0E12 /* GKCoverEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverEnum.h; sourceTree = "<group>"; };
 		60FC8C4D1DCE1A4D0069F86C /* GKCoverDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverDemoViewController.h; sourceTree = "<group>"; };
@@ -228,6 +233,9 @@
 		60FC8C4C1DCE1A2F0069F86C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				60A9A1551E8E3F6E00E714D4 /* GKCoverView.h */,
+				60A9A1561E8E3F6E00E714D4 /* GKCoverView.m */,
+				60A9A1581E8E3F7800E714D4 /* GKCoverView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,6 +346,7 @@
 				6034DFD71D6D65DC000A7942 /* LaunchScreen.storyboard in Resources */,
 				6034DFD41D6D65DC000A7942 /* Assets.xcassets in Resources */,
 				6034DFD21D6D65DC000A7942 /* Main.storyboard in Resources */,
+				60A9A1591E8E3F7800E714D4 /* GKCoverView.xib in Resources */,
 				6008098D1D6F03FA00CCF5F1 /* transparent_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +376,7 @@
 				6008096E1D6EE2EB00CCF5F1 /* GKCoverDemoVC.m in Sources */,
 				6008098B1D6F03FA00CCF5F1 /* UIView+GKExtension.m in Sources */,
 				6008098C1D6F03FA00CCF5F1 /* GKCover.m in Sources */,
+				60A9A1571E8E3F6E00E714D4 /* GKCoverView.m in Sources */,
 				6043D7FF1E60208D00186421 /* GKCoverDemo_v240.m in Sources */,
 				6008096C1D6EE2EB00CCF5F1 /* AppDelegate.m in Sources */,
 				60FC8C4F1DCE1A4D0069F86C /* GKCoverDemoViewController.m in Sources */,

@@ -10,17 +10,18 @@
 #import "GKCover.h"
 
 #pragma mark - 内部记录
-static GKCover          *_cover;        // 遮罩
-static UIView           *_fromView;     // 显示在此视图上
-static UIView           *_contentView;  // 显示的视图
-static BOOL             _animated;      // 是否需要动画
-static showBlock        _showBlock;     // 显示时的回调block
-static hideBlock        _hideBlock;     // 隐藏时的回调block
-static BOOL             _notclick;      // 是否能点击的判断
-static GKCoverStyle     _style;         // 遮罩类型
-static GKCoverShowStyle _showStyle;     // 显示类型
-static GKCoverAnimStyle _animStyle;     // 动画类型
-static BOOL             _hasCover;      // 遮罩是否已经显示的判断值
+static GKCover          *_cover;          // 遮罩
+static UIView           *_fromView;       // 显示在此视图上
+static UIView           *_contentView;    // 显示的视图
+static BOOL             _animated;        // 是否需要动画
+static showBlock        _showBlock;       // 显示时的回调block
+static hideBlock        _hideBlock;       // 隐藏时的回调block
+static BOOL             _notclick;        // 是否能点击的判断
+static GKCoverStyle     _style;           // 遮罩类型
+static GKCoverShowStyle _showStyle;       // 显示类型
+static GKCoverAnimStyle _animStyle;       // 动画类型
+static BOOL             _hasCover;        // 遮罩是否已经显示的判断值
+static BOOL             _isHideStatusBar; // 遮罩是否遮盖状态栏
 
 // 分离动画类型
 static GKCoverShowAnimStyle _showAnimStyle;
@@ -668,6 +669,50 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     [self showCover];
 }
 
++ (void)coverHideStatusBarWithContentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock {
+    _isHideStatusBar = YES;
+    
+    _style         = style;
+    _showStyle     = showStyle;
+    _showAnimStyle = showAnimStyle;
+    _hideAnimStyle = hideAnimStyle;
+    _contentView   = contentView;
+    _notclick      = notClick;
+    _showBlock     = showBlock;
+    _hideBlock     = hideBlock;
+    
+    UIWindow *fromView   = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    fromView.windowLevel = UIWindowLevelAlert;
+    fromView.hidden      = NO;
+    [fromView makeKeyAndVisible];
+    
+    _fromView = fromView;
+    
+    // 创建遮罩
+    GKCover *cover = [self cover];
+    // 设置大小和颜色
+    cover.frame = fromView.bounds;
+    // 添加遮罩
+    [fromView addSubview:cover];
+    _cover = cover;
+    
+    switch (style) {
+        case GKCoverStyleTranslucent: // 半透明
+            [self setupTranslucentCover:cover];
+            break;
+        case GKCoverStyleTransparent: // 全透明
+            [self setupTransparentCover:cover];
+            break;
+        case GKCoverStyleBlur:        // 高斯模糊
+            [self setupBlurCover:cover];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self showCover];
+}
 
 + (void)showCover
 {
@@ -852,6 +897,15 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 {
     [_cover removeFromSuperview];
     [_contentView removeFromSuperview];
+    if (_isHideStatusBar) {
+        _isHideStatusBar = NO;
+        
+        UIWindow *coverWindow = (UIWindow *)_fromView;
+        coverWindow.hidden = YES;
+        [coverWindow resignKeyWindow];
+        coverWindow = nil;
+    }
+    
     !_hideBlock ? : _hideBlock();
     
     _cover       = nil;

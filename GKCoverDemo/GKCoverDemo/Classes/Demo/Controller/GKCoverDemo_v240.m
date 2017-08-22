@@ -58,13 +58,17 @@
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleBottom notClick:YES];
+//    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleBottom notClick:YES];
+//    
+//    if ([GKCover hasCover]) {
+//        NSLog(@"遮罩已存在");
+//    }else{
+//        NSLog(@"遮罩不存在");
+//    }
     
-    if ([GKCover hasCover]) {
-        NSLog(@"遮罩已存在");
-    }else{
-        NSLog(@"遮罩不存在");
-    }
+    [GKCover coverHideStatusBarWithContentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleCenter hideAnimStyle:GKCoverHideAnimStyleCenter notClick:YES showBlock:nil hideBlock:nil];
+    
+    
 }
 - (IBAction)center02:(id)sender {
     
@@ -138,6 +142,10 @@
     }else{
         NSLog(@"遮罩不存在");
     }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

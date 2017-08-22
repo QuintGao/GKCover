@@ -162,6 +162,7 @@ typedef void(^hideBlock)();
 
 + (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock;
 
++ (void)coverHideStatusBarWithContentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock;
 
 + (void)showCover;
 + (void)hideCover;
