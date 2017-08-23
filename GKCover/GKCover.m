@@ -69,9 +69,9 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     GKCover *cover = [self cover];
     cover.backgroundColor = [UIColor clearColor];
     
-    UIImageView *bgView = [UIImageView new];
+    UIView *bgView = [UIView new];
+    bgView.backgroundColor = [UIColor clearColor];
     bgView.gk_size = CGSizeMake(KScreenW, KScreenH);
-    bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
     [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:target action:action]];
     [cover addSubview:bgView];
@@ -311,13 +311,13 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 
 
 /**
- *  透明图片
+ *  透明背景
  */
-+ (UIImageView *)transparentBgView
++ (UIView *)transparentBgView
 {
-    UIImageView *bgView = [UIImageView new];
+    UIView *bgView = [UIView new];
+    bgView.backgroundColor = [UIColor clearColor];
     bgView.gk_size = _cover.gk_size;
-    bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
     if (!_notclick) {
         [bgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
@@ -503,11 +503,11 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 /**
  *  透明图片
  */
-+ (UIImageView *)gk_transparentBgView
++ (UIView *)gk_transparentBgView
 {
-    UIImageView *bgView = [UIImageView new];
+    UIView *bgView = [UIView new];
+    bgView.backgroundColor = [UIColor clearColor];
     bgView.gk_size = _cover.gk_size;
-    bgView.image = [UIImage imageNamed:@"transparent_bg"];
     bgView.userInteractionEnabled = YES;
     [self addTap:bgView];
     return bgView;

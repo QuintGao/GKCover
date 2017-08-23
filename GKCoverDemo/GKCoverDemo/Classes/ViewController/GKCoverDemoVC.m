@@ -32,7 +32,7 @@
     redView.backgroundColor = [UIColor redColor];
     redView.gk_size = CGSizeMake(100, 200);
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:redView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:NO];
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:redView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:NO];
     
     
     if ([GKCover hasCover]) {
@@ -47,7 +47,7 @@
     blueView.backgroundColor = [UIColor blueColor];
     blueView.gk_size = CGSizeMake(self.view.frame.size.width, 200);
     
-    [GKCover coverFrom:self.view contentView:blueView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
+    [GKCover coverFrom:self.view contentView:blueView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
 }
 
 // 半透明遮罩-中间弹窗
