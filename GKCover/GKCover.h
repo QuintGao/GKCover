@@ -11,8 +11,8 @@
 #import "GKCoverEnum.h"
 #import "UIView+GKExtension.h"
 
-typedef void(^showBlock)();
-typedef void(^hideBlock)();
+typedef void(^showBlock)(void);
+typedef void(^hideBlock)(void);
 
 @interface GKCover : UIView<CAAnimationDelegate>
 

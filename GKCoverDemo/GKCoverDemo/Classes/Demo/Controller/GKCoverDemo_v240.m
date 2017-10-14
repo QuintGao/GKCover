@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
 }
 
 - (IBAction)top01:(id)sender {
@@ -66,10 +67,11 @@
 //        NSLog(@"遮罩不存在");
 //    }
     
-    [GKCover coverHideStatusBarWithContentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleCenter hideAnimStyle:GKCoverHideAnimStyleCenter notClick:YES showBlock:nil hideBlock:nil];
+    [GKCover coverHideStatusBarWithContentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleBottom showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleBottom notClick:YES showBlock:nil hideBlock:nil];
     
     
 }
+
 - (IBAction)center02:(id)sender {
     
     UIImage *centerImage = [UIImage imageNamed:@"share2"];
@@ -142,6 +144,10 @@
     }else{
         NSLog(@"遮罩不存在");
     }
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return NO;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
