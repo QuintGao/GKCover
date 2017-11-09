@@ -216,6 +216,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
  */
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
 {
+    if ([self hasCover]) return;
     // 创建遮罩
     GKCover *cover = [self cover];
     // 设置大小和颜色
@@ -255,6 +256,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
  */
 + (void)transparentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
 {
+    if ([self hasCover]) return;
     // 创建遮罩
     GKCover *cover = [self cover];
     cover.frame = fromView.bounds;
@@ -278,6 +280,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 
 + (void)blurCoverFrom:(UIView *)fromView contentView:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)notClick style:(UIBlurEffectStyle)style showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
 {
+    if ([self hasCover]) return;
     // 创建遮罩
     GKCover *cover = [self cover];
     cover.frame = fromView.bounds;
@@ -471,6 +474,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     _showBlock   = showBlock;
     _hideBlock   = hideBlock;
     
+    if ([self hasCover]) return;
+    
     // 创建遮罩
     GKCover *cover = [self cover];
     // 设置大小和颜色
@@ -643,6 +648,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     _showBlock     = showBlock;
     _hideBlock     = hideBlock;
     
+    if ([self hasCover]) return;
+    
     // 创建遮罩
     GKCover *cover = [self cover];
     // 设置大小和颜色
@@ -687,6 +694,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     [fromView makeKeyAndVisible];
     
     _fromView = fromView;
+    
+    if ([self hasCover]) return;
     
     // 创建遮罩
     GKCover *cover = [self cover];
