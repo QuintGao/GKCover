@@ -392,6 +392,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
  *  隐藏
  */
 + (void)hide{
+    _hasCover = NO;
+    
     if (_animated && ![_fromView isKindOfClass:[UIWindow class]]) {
         
         [UIView animateWithDuration:0.25 animations:^{
@@ -465,6 +467,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 
 + (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle animStyle:(GKCoverAnimStyle)animStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
 {
+    if ([self hasCover]) return;
+    
     _style       = style;
     _showStyle   = showStyle;
     _animStyle   = animStyle;
@@ -473,8 +477,6 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     _notclick    = notClick;
     _showBlock   = showBlock;
     _hideBlock   = hideBlock;
-    
-    if ([self hasCover]) return;
     
     // 创建遮罩
     GKCover *cover = [self cover];
@@ -638,6 +640,8 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 
 + (void)coverFrom:(UIView *)fromView contentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock
 {
+    if ([self hasCover]) return;
+    
     _style         = style;
     _showStyle     = showStyle;
     _showAnimStyle = showAnimStyle;
@@ -647,8 +651,6 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     _notclick      = notClick;
     _showBlock     = showBlock;
     _hideBlock     = hideBlock;
-    
-    if ([self hasCover]) return;
     
     // 创建遮罩
     GKCover *cover = [self cover];
@@ -677,6 +679,9 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 }
 
 + (void)coverHideStatusBarWithContentView:(UIView *)contentView style:(GKCoverStyle)style showStyle:(GKCoverShowStyle)showStyle showAnimStyle:(GKCoverShowAnimStyle)showAnimStyle hideAnimStyle:(GKCoverHideAnimStyle)hideAnimStyle notClick:(BOOL)notClick showBlock:(showBlock)showBlock hideBlock:(hideBlock)hideBlock {
+    
+    if ([self hasCover]) return;
+    
     _isHideStatusBar = YES;
     
     _style         = style;
@@ -694,8 +699,6 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     [fromView makeKeyAndVisible];
     
     _fromView = fromView;
-    
-    if ([self hasCover]) return;
     
     // 创建遮罩
     GKCover *cover = [self cover];
