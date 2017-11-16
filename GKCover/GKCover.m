@@ -924,4 +924,30 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     _contentView = nil;
 }
 
++ (void)layoutSubViews {
+    
+    _contentView.gk_centerX = _fromView.gk_centerX;
+    
+    switch (_showStyle) {
+        case GKCoverShowStyleTop:
+        {
+            _contentView.gk_y = 0;
+        }
+            break;
+        case GKCoverShowStyleCenter:
+        {
+            _contentView.center = _fromView.center;
+        }
+            break;
+        case GKCoverShowStyleBottom:
+        {
+            _contentView.gk_y = KScreenH - _contentView.gk_height;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 @end
