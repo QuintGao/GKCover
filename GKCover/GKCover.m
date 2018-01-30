@@ -380,12 +380,18 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         _contentView.gk_y = KScreenH;
         [UIView animateWithDuration:0.25 animations:^{
             _contentView.gk_y = KScreenH - _contentView.gk_height;
+            if (@available(iOS 11.0, *)) {
+                _contentView.gk_y -= SafeAreaBottom;
+            }
         }completion:^(BOOL finished) {
             !_showBlock ? : _showBlock();
         }];
     }else{
         !_showBlock ? : _showBlock();
         _contentView.gk_y = KScreenH - _contentView.gk_height;
+        if (@available(iOS 11.0, *)) {
+            _contentView.gk_y -= SafeAreaBottom;
+        }
     }
 }
 /**
@@ -564,12 +570,18 @@ static GKCoverHideAnimStyle _hideAnimStyle;
             _contentView.gk_y = KScreenH;
             [UIView animateWithDuration:0.25 animations:^{
                 _contentView.gk_y = KScreenH - _contentView.gk_height;
+                if (@available(iOS 11.0, *)) {
+                    _contentView.gk_y -= SafeAreaBottom;
+                }
             }completion:^(BOOL finished) {
                 !_showBlock ? : _showBlock();
             }];
         }else{
             !_showBlock ? : _showBlock();
             _contentView.gk_y = KScreenH - _contentView.gk_height;
+            if (@available(iOS 11.0, *)) {
+                _contentView.gk_y -= SafeAreaBottom;
+            }
         }
     }
 }
@@ -778,12 +790,19 @@ static GKCoverHideAnimStyle _hideAnimStyle;
                 _contentView.gk_y = KScreenH;
                 [UIView animateWithDuration:0.25 animations:^{
                     _contentView.gk_y = KScreenH - _contentView.gk_height;
+                    
+                    if (@available(iOS 11.0, *)) {
+                        _contentView.gk_y -= SafeAreaBottom;
+                    }
                 }completion:^(BOOL finished) {
                     !_showBlock ? : _showBlock();
                 }];
             }else{
                 !_showBlock ? : _showBlock();
                 _contentView.gk_y = KScreenH - _contentView.gk_height;
+                if (@available(iOS 11.0, *)) {
+                    _contentView.gk_y -= SafeAreaBottom;
+                }
             }
         }
             break;
@@ -942,6 +961,9 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         case GKCoverShowStyleBottom:
         {
             _contentView.gk_y = KScreenH - _contentView.gk_height;
+            if (@available(iOS 11.0, *)) {
+                _contentView.gk_y -= SafeAreaBottom;
+            }
         }
             break;
             

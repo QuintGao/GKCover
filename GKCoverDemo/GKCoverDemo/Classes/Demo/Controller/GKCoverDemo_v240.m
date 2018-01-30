@@ -125,7 +125,13 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:bottomImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * bottomImage.size.height / bottomImage.size.width);
     
-    [GKCover coverFrom:self.view contentView:imgView style:GKCoverStyleBlur showStyle:GKCoverShowStyleBottom showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleBottom notClick:NO];
+    [GKCover coverFrom:self.view
+           contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleBottom
+         showAnimStyle:GKCoverShowAnimStyleBottom
+         hideAnimStyle:GKCoverHideAnimStyleBottom
+              notClick:NO];
 }
 - (IBAction)bottom02:(id)sender {
     UIImage *bottomImage = [UIImage imageNamed:@"share1"];

@@ -30,10 +30,14 @@
 - (IBAction)translucentCover:(id)sender {
     UIView *redView = [UIView new];
     redView.backgroundColor = [UIColor redColor];
-    redView.gk_size = CGSizeMake(100, 200);
+    redView.gk_size = CGSizeMake(KScreenW, 200);
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:redView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleTop notClick:NO];
-    
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow
+           contentView:redView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleBottom
+             animStyle:GKCoverAnimStyleBottom
+              notClick:NO];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -47,7 +51,12 @@
     blueView.backgroundColor = [UIColor blueColor];
     blueView.gk_size = CGSizeMake(self.view.frame.size.width, 200);
     
-    [GKCover coverFrom:self.view contentView:blueView style:GKCoverStyleTransparent showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
+    [GKCover coverFrom:self.view
+           contentView:blueView
+                 style:GKCoverStyleTransparent
+             showStyle:GKCoverShowStyleBottom
+             animStyle:GKCoverAnimStyleBottom
+              notClick:NO];
 }
 
 // 半透明遮罩-中间弹窗
@@ -84,6 +93,9 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         customView.gk_y = KScreenH - 200;
+        if (@available(iOS 11.0, *)) {
+            customView.gk_y -= SafeAreaBottom;
+        }
     }];
 }
 
@@ -102,6 +114,9 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         customView.gk_y = (KScreenH - 200)/2;
+        if (@available(iOS 11.0, *)) {
+            customView.gk_y -= SafeAreaBottom;
+        }
     }];
 }
 
@@ -111,7 +126,10 @@
     customView.gk_size = CGSizeMake(KScreenW, 200);
     customView.backgroundColor = [UIColor blackColor];
     
-    [GKCover translucentCoverFrom:self.view content:customView animated:YES showBlock:^{
+    [GKCover translucentCoverFrom:self.view
+                          content:customView
+                         animated:YES
+                        showBlock:^{
         // 显示出来时的block
         NSLog(@"弹窗显示了，6不6");
     } hideBlock:^{
@@ -139,6 +157,9 @@
     }completion:^(BOOL finished) {
         [self.cover removeFromSuperview];
         [self.customView removeFromSuperview];
+        
+        self.cover = nil;
+        self.customView = nil;
     }];
 }
 
