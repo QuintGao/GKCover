@@ -1,6 +1,6 @@
 # GKCover
 
-已支持CocoaPods：pod 'GKCover' ,'~>2.4.0'
+已支持CocoaPods：pod 'GKCover' ,'~>2.4.9'
 
 版本2.4.0更新：分离遮罩弹出和隐藏时的动画，当前隐藏遮罩方法[GKCover hideCover]
 
