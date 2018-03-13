@@ -380,18 +380,12 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         _contentView.gk_y = KScreenH;
         [UIView animateWithDuration:0.25 animations:^{
             _contentView.gk_y = KScreenH - _contentView.gk_height;
-            if (@available(iOS 11.0, *)) {
-                _contentView.gk_y -= SafeAreaBottom;
-            }
         }completion:^(BOOL finished) {
             !_showBlock ? : _showBlock();
         }];
     }else{
         !_showBlock ? : _showBlock();
         _contentView.gk_y = KScreenH - _contentView.gk_height;
-        if (@available(iOS 11.0, *)) {
-            _contentView.gk_y -= SafeAreaBottom;
-        }
     }
 }
 /**
@@ -526,6 +520,16 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     return bgView;
 }
 
++ (UIView *)gk_coverTransparentBgView
+{
+    UIView *bgView = [UIView new];
+    bgView.backgroundColor = [UIColor clearColor];
+    bgView.gk_size = _cover.gk_size;
+    bgView.userInteractionEnabled = YES;
+    [self coverAddTap:bgView];
+    return bgView;
+}
+
 + (void)showView
 {
     [_fromView addSubview:_contentView];
@@ -570,18 +574,12 @@ static GKCoverHideAnimStyle _hideAnimStyle;
             _contentView.gk_y = KScreenH;
             [UIView animateWithDuration:0.25 animations:^{
                 _contentView.gk_y = KScreenH - _contentView.gk_height;
-                if (@available(iOS 11.0, *)) {
-                    _contentView.gk_y -= SafeAreaBottom;
-                }
             }completion:^(BOOL finished) {
                 !_showBlock ? : _showBlock();
             }];
         }else{
             !_showBlock ? : _showBlock();
             _contentView.gk_y = KScreenH - _contentView.gk_height;
-            if (@available(iOS 11.0, *)) {
-                _contentView.gk_y -= SafeAreaBottom;
-            }
         }
     }
 }
@@ -790,19 +788,12 @@ static GKCoverHideAnimStyle _hideAnimStyle;
                 _contentView.gk_y = KScreenH;
                 [UIView animateWithDuration:0.25 animations:^{
                     _contentView.gk_y = KScreenH - _contentView.gk_height;
-                    
-                    if (@available(iOS 11.0, *)) {
-                        _contentView.gk_y -= SafeAreaBottom;
-                    }
                 }completion:^(BOOL finished) {
                     !_showBlock ? : _showBlock();
                 }];
             }else{
                 !_showBlock ? : _showBlock();
                 _contentView.gk_y = KScreenH - _contentView.gk_height;
-                if (@available(iOS 11.0, *)) {
-                    _contentView.gk_y -= SafeAreaBottom;
-                }
             }
         }
             break;
@@ -892,7 +883,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 + (void)setupTransparentCover:(UIView *)cover
 {
     cover.backgroundColor = [UIColor clearColor];
-    [cover addSubview:[self gk_transparentBgView]];
+    [cover addSubview:[self gk_coverTransparentBgView]];
 }
 
 /**
@@ -961,9 +952,6 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         case GKCoverShowStyleBottom:
         {
             _contentView.gk_y = KScreenH - _contentView.gk_height;
-            if (@available(iOS 11.0, *)) {
-                _contentView.gk_y -= SafeAreaBottom;
-            }
         }
             break;
             

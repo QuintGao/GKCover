@@ -93,9 +93,6 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         customView.gk_y = KScreenH - 200;
-        if (@available(iOS 11.0, *)) {
-            customView.gk_y -= SafeAreaBottom;
-        }
     }];
 }
 
@@ -114,9 +111,6 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         customView.gk_y = (KScreenH - 200)/2;
-        if (@available(iOS 11.0, *)) {
-            customView.gk_y -= SafeAreaBottom;
-        }
     }];
 }
 
@@ -158,8 +152,10 @@
         [self.cover removeFromSuperview];
         [self.customView removeFromSuperview];
         
-        self.cover = nil;
+        self.cover      = nil;
         self.customView = nil;
+        
+        [GKCover hideView];
     }];
 }
 

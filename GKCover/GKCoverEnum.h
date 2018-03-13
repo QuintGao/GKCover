@@ -12,9 +12,6 @@
 #define KScreenW [UIScreen mainScreen].bounds.size.width
 #define KScreenH [UIScreen mainScreen].bounds.size.height
 
-// 安全区域距离底部的高度
-#define SafeAreaBottom 34
-
 /** 默认动画时间 */
 #define kAnimDuration 0.25
 /** 默认透明度 */
