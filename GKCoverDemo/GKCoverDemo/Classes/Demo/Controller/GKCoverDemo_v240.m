@@ -31,7 +31,15 @@
     view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:view];
     
-    [GKCover coverFrom:view contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleTop notClick:NO showBlock:nil hideBlock:^{
+    [GKCover coverFrom:view
+           contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleTop
+         showAnimStyle:GKCoverShowAnimStyleTop
+         hideAnimStyle:GKCoverHideAnimStyleTop
+              notClick:NO
+             showBlock:nil
+             hideBlock:^{
         [view removeFromSuperview];
         view = nil;
     }];
@@ -47,7 +55,15 @@
     view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:view];
     
-    [GKCover coverFrom:view contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO showBlock:nil hideBlock:^{
+    [GKCover coverFrom:view
+           contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleTop
+         showAnimStyle:GKCoverShowAnimStyleTop
+         hideAnimStyle:GKCoverHideAnimStyleNone
+              notClick:NO
+             showBlock:nil
+             hideBlock:^{
         [view removeFromSuperview];
         view = nil;
     }];
@@ -59,16 +75,21 @@
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
-//    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleBottom notClick:YES];
-//    
-//    if ([GKCover hasCover]) {
-//        NSLog(@"遮罩已存在");
-//    }else{
-//        NSLog(@"遮罩不存在");
-//    }
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow
+           contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleCenter
+         showAnimStyle:GKCoverShowAnimStyleTop
+         hideAnimStyle:GKCoverHideAnimStyleBottom
+              notClick:YES];
     
-    [GKCover coverHideStatusBarWithContentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleBottom showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleBottom notClick:YES showBlock:nil hideBlock:nil];
+    if ([GKCover hasCover]) {
+        NSLog(@"遮罩已存在");
+    }else{
+        NSLog(@"遮罩不存在");
+    }
     
+//    [GKCover coverHideStatusBarWithContentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleBottom showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleBottom notClick:YES showBlock:nil hideBlock:nil];
     
 }
 
@@ -80,7 +101,13 @@
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleTop notClick:YES];
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow
+           contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleCenter
+         showAnimStyle:GKCoverShowAnimStyleBottom
+         hideAnimStyle:GKCoverHideAnimStyleTop
+              notClick:YES];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -96,7 +123,13 @@
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleCenter hideAnimStyle:GKCoverHideAnimStyleCenter notClick:YES];
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow
+           contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleCenter
+         showAnimStyle:GKCoverShowAnimStyleCenter
+         hideAnimStyle:GKCoverHideAnimStyleCenter
+              notClick:YES];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -112,7 +145,12 @@
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
     
-    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:YES];
+    [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleCenter
+         showAnimStyle:GKCoverShowAnimStyleBottom
+         hideAnimStyle:GKCoverHideAnimStyleNone
+              notClick:YES];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -138,7 +176,64 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:bottomImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * bottomImage.size.height / bottomImage.size.width);
     
-    [GKCover coverFrom:self.view contentView:imgView style:GKCoverStyleBlur showStyle:GKCoverShowStyleBottom showAnimStyle:GKCoverShowAnimStyleBottom hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
+    [GKCover coverFrom:self.view
+           contentView:imgView
+                 style:GKCoverStyleBlur
+             showStyle:GKCoverShowStyleBottom
+         showAnimStyle:GKCoverShowAnimStyleBottom
+         hideAnimStyle:GKCoverHideAnimStyleNone
+              notClick:NO];
+}
+- (IBAction)bottom03:(id)sender {
+    UIView *blueView = [UIView new];
+    blueView.backgroundColor = [UIColor blueColor];
+    blueView.gk_size = CGSizeMake(KScreenW, 160.0f);
+    [blueView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bottom03ViewClick:)]];
+    
+    [GKCover coverFrom:self.view
+           contentView:blueView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleBottom
+         showAnimStyle:GKCoverShowAnimStyleBottom
+         hideAnimStyle:GKCoverHideAnimStyleBottom
+              notClick:YES];
+}
+
+- (IBAction)left:(id)sender {
+    UIView *redView = [UIView new];
+    redView.backgroundColor = [UIColor redColor];
+    redView.gk_size = CGSizeMake(120, KScreenH);
+    
+    [GKCover coverFrom:self.view
+           contentView:redView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleLeft
+         showAnimStyle:GKCoverShowAnimStyleLeft
+         hideAnimStyle:GKCoverHideAnimStyleLeft
+              notClick:NO];
+}
+
+- (IBAction)right:(id)sender {
+    UIView *redView = [UIView new];
+    redView.backgroundColor = [UIColor redColor];
+    redView.gk_size = CGSizeMake(120, KScreenH);
+    
+    [GKCover coverFrom:self.view
+           contentView:redView
+                 style:GKCoverStyleTranslucent
+             showStyle:GKCoverShowStyleRight
+         showAnimStyle:GKCoverShowAnimStyleRight
+         hideAnimStyle:GKCoverHideAnimStyleRight
+              notClick:NO];
+}
+
+- (void)bottom03ViewClick:(id)sender {
+    [GKCover hideCover];
+    
+    // 这里需要延迟弹窗，防止动画冲突
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self bottom02:nil];
+    });
 }
 
 - (void)imgClick
