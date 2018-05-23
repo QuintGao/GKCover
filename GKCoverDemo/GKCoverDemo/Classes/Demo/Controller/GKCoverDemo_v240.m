@@ -159,12 +159,17 @@
     }
 }
 - (IBAction)bottom01:(id)sender {
+    
     UIImage *bottomImage = [UIImage imageNamed:@"share1"];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:bottomImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * bottomImage.size.height / bottomImage.size.width);
     
+    UIView *contentView = [UIView new];
+    [contentView addSubview:imgView];
+    contentView.gk_size = CGSizeMake(imgView.gk_width, imgView.gk_height + 34.0f);
+    
     [GKCover coverFrom:self.view
-           contentView:imgView
+           contentView:contentView
                  style:GKCoverStyleTranslucent
              showStyle:GKCoverShowStyleBottom
          showAnimStyle:GKCoverShowAnimStyleBottom
@@ -231,7 +236,7 @@
     [GKCover hideCover];
     
     // 这里需要延迟弹窗，防止动画冲突
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kAnimDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self bottom02:nil];
     });
 }

@@ -560,7 +560,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
             _contentView.center = _fromView.center;
             [self animationAlert:_contentView];
         }else if (_animStyle == GKCoverAnimStyleBottom) { // 下进上出
-            _contentView.gk_y = KScreenH;
+            _contentView.gk_y = _fromView.gk_height;
             [UIView animateWithDuration:kAnimDuration animations:^{
                 _contentView.center = _fromView.center;
             }completion:^(BOOL finished) {
@@ -573,15 +573,15 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     }else if (_showStyle == GKCoverShowStyleBottom){
         _contentView.gk_centerX = _fromView.gk_centerX;
         if (_animStyle == GKCoverAnimStyleBottom) {
-            _contentView.gk_y = KScreenH;
+            _contentView.gk_y = _fromView.gk_height;
             [UIView animateWithDuration:kAnimDuration animations:^{
-                _contentView.gk_y = KScreenH - _contentView.gk_height;
+                _contentView.gk_y = _fromView.gk_height - _contentView.gk_height;
             }completion:^(BOOL finished) {
                 !_showBlock ? : _showBlock();
             }];
         }else{
             !_showBlock ? : _showBlock();
-            _contentView.gk_y = KScreenH - _contentView.gk_height;
+            _contentView.gk_y = _fromView.gk_height - _contentView.gk_height;
         }
     }else if (_showStyle == GKCoverShowStyleLeft) {
         _contentView.gk_centerY = _fromView.gk_height * 0.5f;
@@ -631,7 +631,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     }else if (_showStyle == GKCoverShowStyleCenter){
         if (_animStyle == GKCoverAnimStyleTop) { // 上进下出
             [UIView animateWithDuration:kAnimDuration animations:^{
-                _contentView.gk_y = KScreenH;
+                _contentView.gk_y = _fromView.gk_height;
             }completion:^(BOOL finished) {
                 [self remove];
             }];
@@ -650,12 +650,12 @@ static GKCoverHideAnimStyle _hideAnimStyle;
     }else if (_showStyle == GKCoverShowStyleBottom){
         if (_animStyle == GKCoverAnimStyleBottom) {  // 下进下出
             [UIView animateWithDuration:kAnimDuration animations:^{
-                _contentView.gk_y = KScreenH;
+                _contentView.gk_y = _fromView.gk_height;
             }completion:^(BOOL finished) {
                 [self remove];
             }];
         }else{
-            _contentView.gk_y = KScreenH;
+            _contentView.gk_y = _fromView.gk_height;
             [self remove];
         }
     }else if (_showStyle == GKCoverShowStyleLeft) { // 左进左出
@@ -818,7 +818,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
                 _contentView.center = _fromView.center;
                 [self animationAlert:_contentView];
             }else if (_showAnimStyle == GKCoverShowAnimStyleBottom) { // 下进
-                _contentView.gk_y = KScreenH;
+                _contentView.gk_y = _fromView.gk_height;
                 [UIView animateWithDuration:kAnimDuration animations:^{
                     _contentView.center = _fromView.center;
                 }completion:^(BOOL finished) {
@@ -833,15 +833,15 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         case GKCoverShowStyleBottom: { // 显示在底部
             _contentView.gk_centerX = _fromView.gk_centerX;
             if (_showAnimStyle == GKCoverShowAnimStyleBottom) {
-                _contentView.gk_y = KScreenH;
+                _contentView.gk_y = _fromView.gk_height;
                 [UIView animateWithDuration:kAnimDuration animations:^{
-                    _contentView.gk_y = KScreenH - _contentView.gk_height;
+                    _contentView.gk_y = _fromView.gk_height - _contentView.gk_height;
                 }completion:^(BOOL finished) {
                     !_showBlock ? : _showBlock();
                 }];
             }else{
                 !_showBlock ? : _showBlock();
-                _contentView.gk_y = KScreenH - _contentView.gk_height;
+                _contentView.gk_y = _fromView.gk_height - _contentView.gk_height;
             }
         }
             break;
@@ -910,7 +910,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
                 [self remove];
             }else if (_hideAnimStyle == GKCoverHideAnimStyleBottom) { // 下出
                 [UIView animateWithDuration:kAnimDuration animations:^{
-                    _contentView.gk_y = KScreenH;
+                    _contentView.gk_y = _fromView.gk_height;
                 }completion:^(BOOL finished) {
                     [self remove];
                 }];
@@ -923,12 +923,12 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         case GKCoverShowStyleBottom: { // 显示在底部
             if (_hideAnimStyle == GKCoverHideAnimStyleBottom) {
                 [UIView animateWithDuration:kAnimDuration animations:^{
-                    _contentView.gk_y = KScreenH;
+                    _contentView.gk_y = _fromView.gk_height;
                 }completion:^(BOOL finished) {
                     [self remove];
                 }];
             }else{
-                _contentView.gk_y = KScreenH;
+                _contentView.gk_y = _fromView.gk_height;
                 [self remove];
             }
         }
@@ -1052,7 +1052,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
             break;
         case GKCoverShowStyleBottom:
         {
-            _contentView.gk_y = KScreenH - _contentView.gk_height;
+            _contentView.gk_y = _fromView.gk_height - _contentView.gk_height;
         }
             break;
             
