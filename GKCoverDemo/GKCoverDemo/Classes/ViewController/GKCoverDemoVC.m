@@ -31,13 +31,17 @@
     UIView *redView = [UIView new];
     redView.backgroundColor = [UIColor redColor];
     redView.gk_size = CGSizeMake(KScreenW, 200);
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover coverFrom:[UIApplication sharedApplication].keyWindow
            contentView:redView
                  style:GKCoverStyleTranslucent
              showStyle:GKCoverShowStyleBottom
              animStyle:GKCoverAnimStyleBottom
               notClick:NO];
+#pragma clang diagnostic pop
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -50,13 +54,18 @@
     UIView *blueView = [UIView new];
     blueView.backgroundColor = [UIColor blueColor];
     blueView.gk_size = CGSizeMake(self.view.frame.size.width, 200);
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover coverFrom:self.view
            contentView:blueView
                  style:GKCoverStyleTransparent
              showStyle:GKCoverShowStyleBottom
              animStyle:GKCoverAnimStyleBottom
               notClick:NO];
+#pragma clang diagnostic pop
+    
 }
 
 // 半透明遮罩-中间弹窗
@@ -64,8 +73,13 @@
     UIView *greenView = [UIView new];
     greenView.backgroundColor = [UIColor greenColor];
     greenView.gk_size = CGSizeMake(240, 160);
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover translucentWindowCenterCoverContent:greenView animated:YES];
+#pragma clang diagnostic pop
+    
 }
 
 // 全透明遮罩-中间弹窗
@@ -73,8 +87,13 @@
     UIView *grayView = [UIView new];
     grayView.backgroundColor = [UIColor grayColor];
     grayView.gk_size = CGSizeMake(240, 160);
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover transparentWindowCenterCoverContent:grayView animated:YES];
+#pragma clang diagnostic pop
+    
 }
 
 // 自定义半透明遮罩
@@ -119,17 +138,22 @@
     UIView *customView = [UIView new];
     customView.gk_size = CGSizeMake(KScreenW, 200);
     customView.backgroundColor = [UIColor blackColor];
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover translucentCoverFrom:self.view
                           content:customView
                          animated:YES
                         showBlock:^{
-        // 显示出来时的block
-        NSLog(@"弹窗显示了，6不6");
-    } hideBlock:^{
-        // 移除后的block
-        NSLog(@"弹窗消失了，555");
-    }];
+                            // 显示出来时的block
+                            NSLog(@"弹窗显示了，6不6");
+                        } hideBlock:^{
+                            // 移除后的block
+                            NSLog(@"弹窗消失了，555");
+                        }];
+#pragma clang diagnostic pop
+    
 }
 
 // 透明弹窗-block
@@ -137,12 +161,17 @@
     UIView *customView = [UIView new];
     customView.gk_size = CGSizeMake(300, 200);
     customView.backgroundColor = [UIColor greenColor];
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover transparentWindowCenterCoverContent:customView animated:YES showBlock:^{
         NSLog(@"弹窗显示了，6不6");
     } hideBlock:^{
         NSLog(@"弹窗消失了，555");
     }];
+#pragma clang diagnostic pop
+    
 }
 
 - (void)hidden{
@@ -154,8 +183,13 @@
         
         self.cover      = nil;
         self.customView = nil;
-        
+        // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        // 要消除警告的代码
         [GKCover hideView];
+#pragma clang diagnostic pop
+        
     }];
 }
 

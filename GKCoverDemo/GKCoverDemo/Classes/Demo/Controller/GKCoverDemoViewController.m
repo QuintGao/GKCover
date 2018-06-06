@@ -30,7 +30,10 @@
     view.frame = CGRectMake(0, 64, KScreenW, KScreenH - 64);
     view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:view];
-    
+// 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover coverFrom:view contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop animStyle:GKCoverAnimStyleTop notClick:NO showBlock:^{
         NSLog(@"遮罩显示了");
     } hideBlock:^{
@@ -38,6 +41,7 @@
         [view removeFromSuperview];
         view = nil;
     }];
+#pragma clang diagnostic pop
 }
 
 - (IBAction)centerClick:(id)sender {
@@ -46,8 +50,13 @@
     imgView.gk_size = CGSizeMake(300, 340);
     imgView.userInteractionEnabled = YES;
     [imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgClick)]];
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover coverFrom:[UIApplication sharedApplication].keyWindow contentView:imgView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter animStyle:GKCoverAnimStyleNone notClick:NO];
+#pragma clang diagnostic pop
+    
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
@@ -61,13 +70,24 @@
     UIImage *bottomImage = [UIImage imageNamed:@"share1"];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:bottomImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * bottomImage.size.height / bottomImage.size.width);
-    
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover coverFrom:self.view contentView:imgView style:GKCoverStyleBlur showStyle:GKCoverShowStyleBottom animStyle:GKCoverAnimStyleBottom notClick:NO];
+#pragma clang diagnostic pop
+    
 }
 
 - (void)imgClick
 {
+    // 消除方法弃用(过时)的警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    // 要消除警告的代码
     [GKCover hideView];
+#pragma clang diagnostic pop
+    
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");

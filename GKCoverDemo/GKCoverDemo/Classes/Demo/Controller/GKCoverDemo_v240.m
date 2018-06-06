@@ -81,11 +81,15 @@
              showStyle:GKCoverShowStyleCenter
          showAnimStyle:GKCoverShowAnimStyleTop
          hideAnimStyle:GKCoverHideAnimStyleBottom
-              notClick:YES];
+              notClick:YES showBlock:^{
+                  NSLog(@"遮罩显示了。。。");
+              } hideBlock:^{
+                  NSLog(@"遮罩消失了。。。");
+              }];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");
-    }else{
+    }else {
         NSLog(@"遮罩不存在");
     }
     
@@ -243,7 +247,9 @@
 
 - (void)imgClick
 {
-    [GKCover hideCover];
+    [GKCover hideCoverWithHideBlock:^{
+        NSLog(@"隐藏block。。。。。");
+    }];
     
     if ([GKCover hasCover]) {
         NSLog(@"遮罩已存在");

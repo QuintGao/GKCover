@@ -148,7 +148,7 @@ static GKCoverHideAnimStyle _hideAnimStyle;
 }
 
 #pragma mark - v2.0.2新增方法,使用更加方便
-#pragma makr - 新增功能：增加点击遮罩时是否消失的判断,canClick是否可以点击，默认是YES
+#pragma makr - 新增功能:增加点击遮罩时是否消失的判断,canClick是否可以点击,默认是YES
 
 + (void)translucentCoverFrom:(UIView *)fromView content:(UIView *)contentView animated:(BOOL)animated notClick:(BOOL)click
 {
@@ -1059,6 +1059,13 @@ static GKCoverHideAnimStyle _hideAnimStyle;
         default:
             break;
     }
+}
+
+#pragma mark - 2.5.2
++ (void)hideCoverWithHideBlock:(hideBlock)hideBlock {
+    _hideBlock = hideBlock;
+    
+    [GKCover hideCover];
 }
 
 @end
