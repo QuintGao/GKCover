@@ -140,6 +140,8 @@
     }else{
         NSLog(@"遮罩不存在");
     }
+    
+    [GKCover changeCoverBgColor:[UIColor greenColor]];
 }
 - (IBAction)center04:(id)sender {
     

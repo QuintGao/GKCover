@@ -18,6 +18,7 @@
 		6034DFE21D6D65DC000A7942 /* GKCoverDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFE11D6D65DC000A7942 /* GKCoverDemoTests.m */; };
 		6034DFED1D6D65DC000A7942 /* GKCoverDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034DFEC1D6D65DC000A7942 /* GKCoverDemoUITests.m */; };
 		6043D7FF1E60208D00186421 /* GKCoverDemo_v240.m in Sources */ = {isa = PBXBuildFile; fileRef = 6043D7FE1E60208D00186421 /* GKCoverDemo_v240.m */; };
+		604FA89620C79FA900EBA75B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 604FA89520C79FA900EBA75B /* README.md */; };
 		60A9A1571E8E3F6E00E714D4 /* GKCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A9A1561E8E3F6E00E714D4 /* GKCoverView.m */; };
 		60A9A1591E8E3F7800E714D4 /* GKCoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A9A1581E8E3F7800E714D4 /* GKCoverView.xib */; };
 		60FC8C4F1DCE1A4D0069F86C /* GKCoverDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FC8C4E1DCE1A4D0069F86C /* GKCoverDemoViewController.m */; };
@@ -64,6 +65,7 @@
 		6034DFEE1D6D65DC000A7942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6043D7FD1E60208D00186421 /* GKCoverDemo_v240.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverDemo_v240.h; sourceTree = "<group>"; };
 		6043D7FE1E60208D00186421 /* GKCoverDemo_v240.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCoverDemo_v240.m; sourceTree = "<group>"; };
+		604FA89520C79FA900EBA75B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		60A9A1551E8E3F6E00E714D4 /* GKCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCoverView.h; sourceTree = "<group>"; };
 		60A9A1561E8E3F6E00E714D4 /* GKCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCoverView.m; sourceTree = "<group>"; };
 		60A9A1581E8E3F7800E714D4 /* GKCoverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKCoverView.xib; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				6034DFD81D6D65DC000A7942 /* Info.plist */,
 				60AC7C7C1DDDA68900579B7C /* PrefixHeader.pch */,
 				7934C9DD1FBD254D00A1F7FA /* GKCover.podspec */,
+				604FA89520C79FA900EBA75B /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604FA89620C79FA900EBA75B /* README.md in Resources */,
 				6034DFD71D6D65DC000A7942 /* LaunchScreen.storyboard in Resources */,
 				6034DFD41D6D65DC000A7942 /* Assets.xcassets in Resources */,
 				6034DFD21D6D65DC000A7942 /* Main.storyboard in Resources */,

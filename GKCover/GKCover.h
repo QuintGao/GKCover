@@ -295,4 +295,6 @@ typedef void(^hideBlock)(void);
 // 调用此方法,主方法中的hideBlock将不再起作用
 + (void)hideCoverWithHideBlock:(hideBlock)hideBlock;
 
++ (void)changeCoverBgColor:(UIColor *)bgColor;
+
 @end
