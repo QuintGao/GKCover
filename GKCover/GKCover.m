@@ -355,15 +355,25 @@ static UIColor          *_bgColor;         // 背景色
  */
 + (void)animationAlert:(UIView*)view{
     CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    animation.duration = 0.5;
+    animation.duration = 0.4;
     animation.delegate = _cover;
     
+    NSMutableArray *timingFunctions = [NSMutableArray array];
     NSMutableArray *values = [NSMutableArray array];
-    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1.0)]];
     [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)]];
-    [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9, 0.9, 1.0)]];
     [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)]];
+    
+    [timingFunctions addObject:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    [timingFunctions addObject:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    
     animation.values = values;
+    
+    animation.keyTimes = [[NSArray alloc] initWithObjects:
+                          [[NSNumber alloc] initWithDouble:0.0]
+                          ,[[NSNumber alloc] initWithDouble:0.5],
+                          [[NSNumber alloc] initWithDouble:0.75],
+                          [[NSNumber alloc] initWithDouble:1.0], nil];
+    animation.timingFunctions = timingFunctions;
     
     [view.layer addAnimation:animation forKey:nil];
 }
@@ -791,6 +801,9 @@ static UIColor          *_bgColor;         // 背景色
 + (void)showCover {
     [_fromView addSubview:_contentView];
     
+    /// 主要是为了中间动画
+    _contentView.alpha = 1;
+    
     switch (_showStyle) {
         case GKCoverShowStyleTop: {  // 显示在顶部
             _contentView.gk_centerX = _fromView.gk_centerX;
@@ -909,7 +922,12 @@ static UIColor          *_bgColor;         // 背景色
                     [self remove];
                 }];
             }else if (_hideAnimStyle == GKCoverHideAnimStyleCenter) { // 中间动画
-                [self remove];
+                [UIView animateWithDuration:kAnimDuration animations:^{
+                    _contentView.alpha = 0;
+                    _cover.alpha = 0;
+                } completion:^(BOOL finished) {
+                    [self remove];
+                }];
             }else if (_hideAnimStyle == GKCoverHideAnimStyleBottom) { // 下出
                 [UIView animateWithDuration:kAnimDuration animations:^{
                     _contentView.gk_y = _fromView.gk_height;
