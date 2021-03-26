@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vsW-5b-afl">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vsW-5b-afl">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGK-KR-s65">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGK-KR-s65">
                                 <rect key="frame" x="115" y="165" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -30,7 +28,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="KtO-XZ-smY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-nC-rnN">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-nC-rnN">
                                 <rect key="frame" x="115" y="258" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -39,7 +37,7 @@
                                     <segue destination="xS0-pW-Sqm" kind="show" id="BRs-rK-vr5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HN-2a-tfA">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1HN-2a-tfA">
                                 <rect key="frame" x="115" y="354" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -69,63 +67,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keH-6V-kYr">
-                                <rect key="frame" x="115" y="165" width="145" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keH-6V-kYr">
+                                <rect key="frame" x="115" y="145" width="145" height="30"/>
                                 <state key="normal" title="半透明遮罩-底部弹窗"/>
                                 <connections>
                                     <action selector="translucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xeS-I6-G3X"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwL-zH-Bpk">
-                                <rect key="frame" x="115" y="225" width="145" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwL-zH-Bpk">
+                                <rect key="frame" x="115" y="205" width="145" height="30"/>
                                 <state key="normal" title="全透明遮罩-底部弹窗"/>
                                 <connections>
                                     <action selector="transparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5O-Ox-vBG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51V-Yj-rt1">
-                                <rect key="frame" x="115" y="285" width="145" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51V-Yj-rt1">
+                                <rect key="frame" x="115" y="265" width="145" height="30"/>
                                 <state key="normal" title="半透明遮罩-中间弹窗"/>
                                 <connections>
                                     <action selector="windowCenterTranslucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3PR-Jt-qH5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQP-Fg-Dr9">
-                                <rect key="frame" x="115" y="345" width="145" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQP-Fg-Dr9">
+                                <rect key="frame" x="115" y="325" width="145" height="30"/>
                                 <state key="normal" title="全透明遮罩-中间弹窗"/>
                                 <connections>
                                     <action selector="windowCenterTransparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QrV-IJ-SbD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GKCoverDemo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prC-rv-cI9">
-                                <rect key="frame" x="131" y="104" width="113" height="21"/>
+                                <rect key="frame" x="131" y="84" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-T2-BFD">
-                                <rect key="frame" x="107.5" y="405" width="160" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-T2-BFD">
+                                <rect key="frame" x="107.5" y="385" width="160" height="30"/>
                                 <state key="normal" title="半透明遮罩-自定义弹窗"/>
                                 <connections>
                                     <action selector="customTranslucentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIB-1T-Jxu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-u0-gNa">
-                                <rect key="frame" x="107.5" y="465" width="160" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-u0-gNa">
+                                <rect key="frame" x="107.5" y="445" width="160" height="30"/>
                                 <state key="normal" title="全透明遮罩-自定义弹窗"/>
                                 <connections>
                                     <action selector="customTransparentCover:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nfn-K7-MUU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-Eg-Pvn">
-                                <rect key="frame" x="127" y="525" width="121" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-Eg-Pvn">
+                                <rect key="frame" x="127" y="505" width="121" height="30"/>
                                 <state key="normal" title="半透明遮罩-block"/>
                                 <connections>
                                     <action selector="coverWithBlock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Thr-2N-wcp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixd-Ec-vdN">
-                                <rect key="frame" x="127" y="585" width="121" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixd-Ec-vdN">
+                                <rect key="frame" x="127" y="565" width="121" height="30"/>
                                 <state key="normal" title="全透明遮罩-block"/>
                                 <connections>
                                     <action selector="transparentCoverWithBlock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRG-bV-fsH"/>
@@ -172,91 +170,91 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v2.4.0版本使用demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4C-G6-j1Z">
-                                <rect key="frame" x="108" y="94" width="160" height="21"/>
+                                <rect key="frame" x="107.5" y="74" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-zM-Let">
-                                <rect key="frame" x="126" y="130" width="123" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zb-zM-Let">
+                                <rect key="frame" x="126" y="110" width="123" height="30"/>
                                 <state key="normal" title="顶部弹出顶部隐藏"/>
                                 <connections>
                                     <action selector="top01:" destination="aC7-Mg-55b" eventType="touchUpInside" id="pX8-av-LKQ"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="M8A-1u-uPC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCF-xh-kcu">
-                                <rect key="frame" x="133.5" y="175" width="108" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCF-xh-kcu">
+                                <rect key="frame" x="133.5" y="155" width="108" height="30"/>
                                 <state key="normal" title="顶部弹出无动画"/>
                                 <connections>
                                     <action selector="top02:" destination="aC7-Mg-55b" eventType="touchUpInside" id="ZvV-2U-9WK"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="G0G-18-aAi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80i-GM-kLJ">
-                                <rect key="frame" x="124" y="220" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80i-GM-kLJ">
+                                <rect key="frame" x="124" y="200" width="127" height="30"/>
                                 <state key="normal" title="中间弹窗,上进下出"/>
                                 <connections>
                                     <action selector="center01:" destination="aC7-Mg-55b" eventType="touchUpInside" id="3Xd-1h-zvQ"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="TGy-Vc-ZSZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-Gt-qim">
-                                <rect key="frame" x="124" y="265" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-Gt-qim">
+                                <rect key="frame" x="124" y="245" width="127" height="30"/>
                                 <state key="normal" title="中间弹窗,下进上出"/>
                                 <connections>
                                     <action selector="center02:" destination="aC7-Mg-55b" eventType="touchUpInside" id="Z86-Ox-kdW"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="uh1-Xf-HB5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av1-gc-kTK">
-                                <rect key="frame" x="124" y="310" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av1-gc-kTK">
+                                <rect key="frame" x="124" y="290" width="127" height="30"/>
                                 <state key="normal" title="中间弹窗,中间隐藏"/>
                                 <connections>
                                     <action selector="center03:" destination="aC7-Mg-55b" eventType="touchUpInside" id="F6R-aT-J5z"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="SkD-VN-9QN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-DS-MpV">
-                                <rect key="frame" x="72.5" y="355" width="230" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAt-DS-MpV">
+                                <rect key="frame" x="72.5" y="335" width="230" height="30"/>
                                 <state key="normal" title="中间弹窗，底部弹窗，隐藏无动画"/>
                                 <connections>
                                     <action selector="center04:" destination="aC7-Mg-55b" eventType="touchUpInside" id="tol-M9-h43"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="0pJ-cX-5vy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2o-yV-eqv">
-                                <rect key="frame" x="126" y="400" width="123" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2o-yV-eqv">
+                                <rect key="frame" x="126" y="380" width="123" height="30"/>
                                 <state key="normal" title="底部弹出底部隐藏"/>
                                 <connections>
                                     <action selector="bottom01:" destination="aC7-Mg-55b" eventType="touchUpInside" id="JaJ-F8-hyY"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="bwC-gu-kWg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-th-Hs9">
-                                <rect key="frame" x="133.5" y="445" width="108" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-th-Hs9">
+                                <rect key="frame" x="133.5" y="425" width="108" height="30"/>
                                 <state key="normal" title="底部弹出无动画"/>
                                 <connections>
                                     <action selector="bottom02:" destination="aC7-Mg-55b" eventType="touchUpInside" id="51V-mr-vAX"/>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="dzO-kk-jzh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzv-rW-DXy">
-                                <rect key="frame" x="95.5" y="490" width="184" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzv-rW-DXy">
+                                <rect key="frame" x="95.5" y="470" width="184" height="30"/>
                                 <state key="normal" title="底部弹窗，隐藏后再次弹窗"/>
                                 <connections>
                                     <action selector="bottom03:" destination="aC7-Mg-55b" eventType="touchUpInside" id="IgY-6r-vpp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2F-it-my0">
-                                <rect key="frame" x="156" y="535" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2F-it-my0">
+                                <rect key="frame" x="156.5" y="515" width="62" height="30"/>
                                 <state key="normal" title="左侧弹窗"/>
                                 <connections>
                                     <action selector="left:" destination="aC7-Mg-55b" eventType="touchUpInside" id="ctq-cF-beu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WU-Zp-0Az">
-                                <rect key="frame" x="156" y="580" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WU-Zp-0Az">
+                                <rect key="frame" x="156.5" y="560" width="62" height="30"/>
                                 <state key="normal" title="右侧弹窗"/>
                                 <connections>
                                     <action selector="right:" destination="aC7-Mg-55b" eventType="touchUpInside" id="3tY-gC-SBc"/>
@@ -308,22 +306,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDY-Vy-coN">
-                                <rect key="frame" x="156" y="84" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDY-Vy-coN">
+                                <rect key="frame" x="156.5" y="64" width="62" height="30"/>
                                 <state key="normal" title="顶部弹出"/>
                                 <connections>
                                     <action selector="topClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="iI8-N6-JcP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP8-YK-Le9">
-                                <rect key="frame" x="156" y="124" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP8-YK-Le9">
+                                <rect key="frame" x="156.5" y="104" width="62" height="30"/>
                                 <state key="normal" title="中间弹出"/>
                                 <connections>
                                     <action selector="centerClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="yZW-TL-0Dz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNB-bB-dFQ">
-                                <rect key="frame" x="156" y="164" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNB-bB-dFQ">
+                                <rect key="frame" x="156.5" y="144" width="62" height="30"/>
                                 <state key="normal" title="底部弹出"/>
                                 <connections>
                                     <action selector="bottomClick:" destination="xS0-pW-Sqm" eventType="touchUpInside" id="3Ro-eG-laE"/>
@@ -352,7 +350,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vsW-5b-afl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cSU-4z-y1M">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
