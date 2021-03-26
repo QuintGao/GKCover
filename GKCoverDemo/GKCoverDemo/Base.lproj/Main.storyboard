@@ -260,11 +260,19 @@
                                     <action selector="right:" destination="aC7-Mg-55b" eventType="touchUpInside" id="3tY-gC-SBc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfF-TH-718">
+                                <rect key="frame" x="133.5" y="610" width="108" height="30"/>
+                                <state key="normal" title="自定义弹窗动画"/>
+                                <connections>
+                                    <action selector="customAnim:" destination="aC7-Mg-55b" eventType="touchUpInside" id="a0H-tm-bu9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4WU-Zp-0Az" firstAttribute="top" secondItem="L2F-it-my0" secondAttribute="bottom" constant="15" id="1dl-ZS-Zg2"/>
                             <constraint firstItem="av1-gc-kTK" firstAttribute="centerX" secondItem="gMz-W4-t4C" secondAttribute="centerX" id="3DM-FH-CGP"/>
+                            <constraint firstItem="OfF-TH-718" firstAttribute="top" secondItem="4WU-Zp-0Az" secondAttribute="bottom" constant="20" id="B4b-dB-Paw"/>
                             <constraint firstItem="L2F-it-my0" firstAttribute="top" secondItem="Pzv-rW-DXy" secondAttribute="bottom" constant="15" id="D4O-Pv-giY"/>
                             <constraint firstItem="Pzv-rW-DXy" firstAttribute="centerX" secondItem="gMz-W4-t4C" secondAttribute="centerX" id="EV9-Ys-zhi"/>
                             <constraint firstItem="80i-GM-kLJ" firstAttribute="top" secondItem="SCF-xh-kcu" secondAttribute="bottom" constant="15" id="Is4-ho-G7N"/>
@@ -278,6 +286,7 @@
                             <constraint firstItem="SCF-xh-kcu" firstAttribute="centerX" secondItem="gMz-W4-t4C" secondAttribute="centerX" id="Z4Y-cI-XaI"/>
                             <constraint firstItem="c2o-yV-eqv" firstAttribute="top" secondItem="sAt-DS-MpV" secondAttribute="bottom" constant="15" id="bZP-NJ-c6r"/>
                             <constraint firstItem="s4C-G6-j1Z" firstAttribute="centerX" secondItem="gMz-W4-t4C" secondAttribute="centerX" id="dmv-8E-I8X"/>
+                            <constraint firstItem="OfF-TH-718" firstAttribute="centerX" secondItem="gMz-W4-t4C" secondAttribute="centerX" id="eLx-P3-F8O"/>
                             <constraint firstItem="yaZ-th-Hs9" firstAttribute="top" secondItem="c2o-yV-eqv" secondAttribute="bottom" constant="15" id="fI3-9c-kw5"/>
                             <constraint firstItem="av1-gc-kTK" firstAttribute="top" secondItem="6yh-Gt-qim" secondAttribute="bottom" constant="15" id="gqo-Wx-ONC"/>
                             <constraint firstItem="sAt-DS-MpV" firstAttribute="centerX" secondItem="gMz-W4-t4C" secondAttribute="centerX" id="kBJ-0U-tCL"/>

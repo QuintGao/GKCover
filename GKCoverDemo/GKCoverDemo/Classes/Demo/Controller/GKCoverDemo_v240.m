@@ -238,6 +238,27 @@
               notClick:NO];
 }
 
+- (IBAction)customAnim:(id)sender {
+    CAKeyframeAnimation *popAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    popAnimation.duration = 0.4;
+    popAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9f, 0.9f, 1.0f)],
+                            [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1f, 1.1f, 1.0f)],
+                            [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.9f, 0.9f, 1.0f)],
+                            [NSValue valueWithCATransform3D:CATransform3DIdentity]];
+    popAnimation.keyTimes = @[@0.0f, @0.5f, @0.75f, @1.0f];
+    popAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear],
+                                     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear],
+                                     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    
+    UIView *contentView = [UIView new];
+    contentView.backgroundColor = UIColor.whiteColor;
+    contentView.layer.cornerRadius = 10;
+    contentView.layer.masksToBounds = YES;
+    contentView.gk_size = CGSizeMake(300, 100);
+    
+    [GKCover showAlertViewFrom:self.view contentView:contentView style:GKCoverStyleTranslucent animation:popAnimation notClick:NO];
+}
+
 - (void)bottom03ViewClick:(id)sender {
     [GKCover hideCover];
     

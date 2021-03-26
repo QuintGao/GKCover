@@ -281,6 +281,21 @@ typedef void(^hideBlock)(void);
                                 showBlock:(showBlock)showBlock
                                 hideBlock:(hideBlock)hideBlock;
 
+#pragma mark - 2.6.0新增自定义中间弹窗动画，只支持中间弹窗
++ (void)showAlertViewFrom:(UIView *)fromView
+              contentView:(UIView *)contentView
+                    style:(GKCoverStyle)style
+                animation:(CAAnimation *)animation
+                 notClick:(BOOL)notClick;
+
++ (void)showAlertViewFrom:(UIView *)fromView
+              contentView:(UIView *)contentView
+                    style:(GKCoverStyle)style
+                animation:(CAAnimation *)animation
+                 notClick:(BOOL)notClick
+                showBlock:(showBlock)showBlock
+                hideBlock:(hideBlock)hideBlock;
+
 /**
  隐藏视图
  */
