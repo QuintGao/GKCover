@@ -26,23 +26,9 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:topImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * topImage.size.height / topImage.size.width);
     
-    __block UIView *view = [UIView new];
-    view.frame = CGRectMake(0, 64, KScreenW, KScreenH - 64);
-    view.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:view];
+    CGFloat top = UIApplication.sharedApplication.statusBarFrame.size.height + self.navigationController.navigationBar.frame.size.height;
     
-    [GKCover coverFrom:view
-           contentView:imgView
-                 style:GKCoverStyleTranslucent
-             showStyle:GKCoverShowStyleTop
-         showAnimStyle:GKCoverShowAnimStyleTop
-         hideAnimStyle:GKCoverHideAnimStyleTop
-              notClick:NO
-             showBlock:nil
-             hideBlock:^{
-        [view removeFromSuperview];
-        view = nil;
-    }];
+    [GKCover coverFrom:self.view contentView:imgView margin:top style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleTop notClick:NO];
 }
 
 - (IBAction)top02:(id)sender {
@@ -50,24 +36,12 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:topImage];
     imgView.gk_size = CGSizeMake(KScreenW, KScreenW * topImage.size.height / topImage.size.width);
     
-    __block UIView *view = [UIView new];
-    view.frame = CGRectMake(0, 64, KScreenW, KScreenH - 64);
-    view.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:view];
     
-    [GKCover coverFrom:view
-           contentView:imgView
-                 style:GKCoverStyleTranslucent
-             showStyle:GKCoverShowStyleTop
-         showAnimStyle:GKCoverShowAnimStyleTop
-         hideAnimStyle:GKCoverHideAnimStyleNone
-              notClick:NO
-             showBlock:nil
-             hideBlock:^{
-        [view removeFromSuperview];
-        view = nil;
-    }];
+    CGFloat top = UIApplication.sharedApplication.statusBarFrame.size.height + self.navigationController.navigationBar.frame.size.height;
+    
+    [GKCover coverFrom:self.view contentView:imgView margin:top style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleTop showAnimStyle:GKCoverShowAnimStyleTop hideAnimStyle:GKCoverHideAnimStyleNone notClick:NO];
 }
+
 - (IBAction)center01:(id)sender {
     UIImage *centerImage = [UIImage imageNamed:@"share2"];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:centerImage];
